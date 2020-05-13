@@ -1,0 +1,13 @@
+<div class="col-xs-12 col-md-8 listing-container">
+<ul>
+    <% for listing in @listings %>
+    <li>
+        <%= link_to "#{listing.title} " %>
+        <br>
+ <%= link_to "#{listing.category.model} " %>
+    </li>
+    <% end %>
+</ul>
+
+
+</div>
