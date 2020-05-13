@@ -9,13 +9,48 @@ class ListingsController < ApplicationController
     def new 
        @categories = Category.all
         @listing = Listing.new
+       
     end 
 
 
     def create
-        current_user.listings.create(listing_params)
-       
+       @listing = current_user.listings.create(listing_params)
+        if listing.save
+        flash[:notice] = "Todo was created successfully"
+        redirect_to listing_path(@listing)
     end
+end
+
+
+   
+
+ 
+
+    def edit
+        @categories = Category.all
+
+        @listing = current_user.listings.find_by_id(params[:id])
+          render("edit")
+      end 
+
+
+      def update
+        @listing = current_user.listings.find_by_id(params[:id])
+        if @listing
+            @listing.update(listing_params)
+            if @listing.errors.any?
+                render "edit"
+            else
+                redirect_back(fallback_location: root_path) 
+            end
+            else
+                redirect_back(fallback_location: root_path) 
+        end
+    end
+
+
+
+
 
 
 end 

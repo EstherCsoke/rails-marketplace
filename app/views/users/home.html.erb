@@ -1,9 +1,14 @@
 
-
-
-
-
 <% if user_signed_in? %>
-<%= link_to "Edit", edit_user_registration_path %>
+<%= link_to "Edit Profile Information", edit_user_registration_path %>
+
+<br>
+<h1>Your current listings</h1>
+ <% current_user.listings.each do |l|%>
+    <%=  "title #{l.title}"   %>
+    <%= link_to "Edit Listing", edit_listing_path(l) %>
+
+
+  <% end %>
 <% end %>
 

@@ -11,10 +11,14 @@
 
   <body>
 
-
-
+ 
 
    <%= render 'layouts/navigation' %>
+    <% flash.each do |name, msg| %>
+<ul>
+<li><%= msg %></li>
+</ul>
+<% end %>
   <div class= "container">
       <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
