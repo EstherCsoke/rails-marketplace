@@ -17,15 +17,7 @@
     <%= form.number_field :price, value: listing.price, min: 0 %>
 </div>
 
- <div>
-        <%= form.label :year %>
-        <%= form.select(:year, @categories.map{|y| [y.year]} ) %>
-    </div>
 
-     <div>
-        <%= form.label :model %>
-        <%= form.select(:model, @categories.map{|c| [c.model]} ) %>
-    </div>
 
 <div>
 <%= form.submit "create"%>

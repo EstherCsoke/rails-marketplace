@@ -6,18 +6,33 @@ class ListingsController < ApplicationController
         @listings = Listing.all
     end 
 
+    def destroy
+        Listing.find(params[:id]).destroy
+        redirect_to root_path
+    end
+
     def new 
-       @categories = Category.all
+    #    @categories = Category.all
         @listing = Listing.new
        
     end 
 
+    def show
+        @listing = Listing.find(params[:id])
+    end 
+
+  
+
+
+
+
 
     def create
        @listing = current_user.listings.create(listing_params)
-        if listing.save
+        if @listing.save
         flash[:notice] = "Todo was created successfully"
-        redirect_to listing_path(@listing)
+        render 'new'
+    
     end
 end
 

@@ -7,7 +7,8 @@
  <% current_user.listings.each do |l|%>
     <%=  "title #{l.title}"   %>
     <%= link_to "Edit Listing", edit_listing_path(l) %>
-
+<%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
+<br>
 
   <% end %>
 <% end %>
