@@ -8,3 +8,13 @@
 <% if @listing.picture.attached? %>
 <%= image_tag @listing.picture, style: "width: 200px" %>
 <%end%>
+
+
+<h2>Send Seller</h2>
+<ul>
+
+<% if current_user.id != @listing.user_id %>
+    <li><%= link_to "send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post %></li>
+    <%end%>
+
+</ul>

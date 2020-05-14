@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+  get 'conversations/index'
   devise_for :users
   get '/', to: 'users#home', as: 'root'
   get '/listings', to: 'listings#index', as: 'listings'
@@ -15,8 +17,9 @@ Rails.application.routes.draw do
   delete '/listings/:id', to: 'listings#destroy'
   resources :listings
 
-  
-
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
 
 
 end

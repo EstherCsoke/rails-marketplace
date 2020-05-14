@@ -34,3 +34,4 @@ en:
   will_paginate:
     previous_label: <span class="glyph glyph-prev"></span>
     next_label: <span class="glyph glyph-next"></span>
+    
