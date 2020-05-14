@@ -1,10 +1,18 @@
+
+
 <% for listing in @listings %>
-    <div class="col-xs-12 col-md-8 listing-container">
+
+    <div class="">
         <%= link_to "#{listing.title} " , listing_path(listing.id)%>
         <br>
         <br>
     </div>
+
 <% end %>
 
 
 
+
+
+
+<%= will_paginate @listings, list_classes: %w(pagination justify-content-center) %>

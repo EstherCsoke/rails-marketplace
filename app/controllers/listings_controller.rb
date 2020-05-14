@@ -3,7 +3,8 @@ class ListingsController < ApplicationController
 
     def index
 
-        @listings = Listing.all
+        # @listings = Listing.all
+        @listings = Listing.paginate(page: params[:page], per_page: 5)
     end 
 
     def destroy
@@ -21,12 +22,6 @@ class ListingsController < ApplicationController
         @listing = Listing.find(params[:id])
     end 
 
-  
-
-
-
-
-
     def create
        @listing = current_user.listings.create(listing_params)
         if @listing.save
@@ -35,11 +30,6 @@ class ListingsController < ApplicationController
     
     end
 end
-
-
-   
-
- 
 
     def edit
         @categories = Category.all

@@ -77,3 +77,6 @@ gem 'activestorage'
 
 
 gem 'sprockets', '~> 3.7.2' 
+
+gem 'will_paginate', '3.1.7'
+gem 'will_paginate-bootstrap4'
