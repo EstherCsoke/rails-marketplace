@@ -2,6 +2,16 @@
 <% if user_signed_in? %>
 <%= link_to "Edit Profile Information", edit_user_registration_path %>
 
+<div>
+  <% if current_user.avatar.attached? %>
+
+     <div class="">
+        <%= image_tag  current_user.avatar, class: "rounded-circle img-thumbnail" %>
+ 
+      </div>
+
+  <% end %>
+</div>
 <br>
 <h1>Your current listings</h1>
  <% current_user.listings.each do |l|%>

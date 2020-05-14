@@ -1,13 +1,10 @@
-<div class="col-xs-12 col-md-8 listing-container">
-<ul>
-    <% for listing in @listings %>
-    <li>
+<% for listing in @listings %>
+    <div class="col-xs-12 col-md-8 listing-container">
         <%= link_to "#{listing.title} " , listing_path(listing.id)%>
         <br>
+        <br>
+    </div>
+<% end %>
 
-    </li>
-    <% end %>
-</ul>
 
 
-</div>

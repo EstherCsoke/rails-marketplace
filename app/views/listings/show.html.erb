@@ -4,3 +4,7 @@
 <br>
 <%= @listing.price%>
 
+<br>
+<% if @listing.picture.attached? %>
+<%= image_tag @listing.picture, style: "width: 200px" %>
+<%end%>

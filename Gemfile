@@ -5,7 +5,8 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.4.1'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -64,3 +65,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise'
+
+
+
+gem "stripe", "~> 5.21"
+
+
+gem "aws-sdk-s3", "~> 1.64"
+
+gem 'activestorage'
+
+
+gem 'sprockets', '~> 3.7.2' 
