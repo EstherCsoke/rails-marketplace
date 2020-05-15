@@ -1,34 +1,35 @@
 
 <%= form_with model: listing, local: true do |form| %>
 
-<div>
+  <div>
     <%= form.label :title %>
     <%= form.text_field :title, value: listing.title %>
-</div>
+  </div>
 
-<div>
+  <div>
     <%= form.label :description %>
     <%= form.text_area :description, value: listing.description %>
-</div>
+  </div>
+
+  <div>
+      <%= form.label :price %>
+      <%= form.number_field :price, value: listing.price, min: 0 %>
+  </div>
+
+  <div>
+    <%= form.select :category_id, Category.all.map {|c| (c.id) } %>
+  </div>
 
 
-<div>
-    <%= form.label :price %>
-    <%= form.number_field :price, value: listing.price, min: 0 %>
-</div>
+  <div>
+    <%= form.submit "create"%>
+  </div>
 
-
-
-<div>
-<%= form.submit "create"%>
-</div>
-
-<div>
-  <%= form.label :picture %> <%= form.file_field :picture, accept:
-  'image/png,image/gif,image/jpeg,image/jpg' %>
-</div>
-
-
-
+  <div>
+    <%= form.label :picture %> <%= form.file_field :picture, accept:
+    'image/png,image/gif,image/jpeg,image/jpg' %>
+  </div>
 
 <%end%>
+
+

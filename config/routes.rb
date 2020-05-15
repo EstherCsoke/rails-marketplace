@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/listings/new', to: 'listings#new', as: 'new_listing'
   post '/listings', to: 'listings#create'
   get '/listings/:id', to: 'listings#show', as: 'listing'
+  get '/pages/profile', to: 'users#profile', as: 'profile'
+
 # the edit routes 
 # the get edit_listing is rendering out the html thats required to update the listing and will give back form
 # wont physically update the form
@@ -16,9 +18,10 @@ Rails.application.routes.draw do
   patch '/listings/:id', to: 'listings#update'
   delete '/listings/:id', to: 'listings#destroy'
   resources :listings
+  resources :categories
 
   resources :conversations, only: [:index, :create] do
-    resources :messages, only: [:index, :create]
+  resources :messages, only: [:index, :create]
   end
 
 

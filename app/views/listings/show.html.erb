@@ -3,6 +3,9 @@
 <%= @listing.description%>
 <br>
 <%= @listing.price%>
+<br>
+<h1> category: <%= @listing.category.kind %> </h1>
+
 
 <br>
 <% if @listing.picture.attached? %>

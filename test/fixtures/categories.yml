@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  model: MyString
-  year: 1
+  kind: MyString
 
 two:
-  model: MyString
-  year: 1
+  kind: MyString
