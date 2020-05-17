@@ -2,16 +2,16 @@
     <h1>Profile Page </h1>
     <% if user_signed_in? %>
     <%= link_to "Edit Profile Information", edit_user_registration_path %>
-    <div>
+  <br>
         <% if current_user.avatar.attached? %>
         <div class="">
             <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail" %>
         <% else %>
-        <%= image_tag("homepage/droneground.jpg", alt: "drone controller",width: "350", height: "250") %>
+        <%= image_tag("profile/defaultimage.png", alt: "drone controller", class: "rounded-circle img-thumbnail") %>
         </div>
         <% end %>
-    </div>
     <br>
+    <div class="text-center">
     <h1>Your current listings</h1>
     <% current_user.listings.each do |l|%>
     <%=  "title #{l.title}"   %>
@@ -21,6 +21,11 @@
     <%= link_to "Edit Listing", edit_listing_path(l) %>
     <%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
     <br>
+    <h1>Your current listings</h1>
+    <%= link_to "Check inbox",  conversations_path %>
+  
     <% end %>
     <% end %>
 </div>
+</div>
+å
