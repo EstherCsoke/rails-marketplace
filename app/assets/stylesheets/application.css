@@ -16,13 +16,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  
- .rounded-circle
-{
+ .rounded-circle {
     width: 110px;
     height: 110px;
 }
 
-.nav-link {
+.navbar a {
     font-family: 'Josefin Sans', sans-serif;
-
+    color: white;
 }
+
+.navbar .nav > li > a {
+    padding:15px 10px 15px
+  }
+
+  .navbar-custom { 
+    background: linear-gradient(145.37deg, #26272B 12.58%, #34393F 93.19%);
+    box-shadow: 10px 10px 40px #0D0E0F, -10px -10px 40px #40464E;
+} 

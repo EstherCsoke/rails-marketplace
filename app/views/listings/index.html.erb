@@ -1,19 +1,12 @@
 <h1>Listings </h1>
+
 <%= link_to "New Category", new_category_path %>
 
 <% for listing in @listings %>
-
-    <div class="">
-        <%= link_to "#{listing.title} " , listing_path(listing.id)%>
-        <br>
-        <br>
-    </div>
-
+  <div class="">
+    <%= link_to "#{listing.title} " , listing_path(listing.id)%>
+    <br>
+  </div>
 <% end %>
 
-
-
-
-
-
-<%= will_paginate @listings, list_classes: %w(pagination justify-content-center) %>
+  <%= will_paginate @listings, list_classes: %w(pagination justify-content-center) %>

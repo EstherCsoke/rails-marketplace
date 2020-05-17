@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:create, :edit, :new]
 	before_action :set_categories, only: [:new,:create, :edit]
 	
 	
