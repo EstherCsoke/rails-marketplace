@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete '/listings/:id', to: 'listings#destroy'
   resources :listings
   resources :categories
+  resources :users
 
   resources :conversations, only: [:index, :create] do
   resources :messages, only: [:index, :create]
