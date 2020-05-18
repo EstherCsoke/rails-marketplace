@@ -1,18 +1,10 @@
-
-
 <%= form_with model: listing, local: true do |form| %>
-
-
 <br>
  <div>
-
     <%= form.label :title %>
     <br>
     <%= form.text_field :title, class: "form-control", value: listing.title %>
-
   </div>
-
-
 <div>
     <%= form.label :price %>
     <br>
@@ -30,8 +22,6 @@
     <%= form.select :category_id, Category.all.map {|c| (c.id) } %>
   </div>
 <br>
-
-
 
  <div class="form-group">
   <div>
