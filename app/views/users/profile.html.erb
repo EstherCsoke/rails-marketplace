@@ -1,31 +1,31 @@
 <div class="text-center">
     <h1>Profile Page </h1>
-    <% if user_signed_in? %>
-    <%= link_to "Edit Profile Information", edit_user_registration_path %>
-  <br>
-        <% if current_user.avatar.attached? %>
-        <div class="">
-            <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail" %>
+  
+    <br>
+    <% if current_user.avatar.attached? %>
+   
+        <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail" %>
         <% else %>
         <%= image_tag("profile/defaultimage.png", alt: "drone controller", class: "rounded-circle img-thumbnail") %>
-        </div>
+<br>
+    <% end %>
+       <% if user_signed_in? %>
+    
+    <%= link_to "Edit Profile Information", edit_user_registration_path %>
+    <br>
+        <h2>Your current listings</h2>
+        <% current_user.listings.each do |l|%>
+        <%=  "title #{l.title}"   %>
+        <br>
+        category <%= l.category_id %>
+        <br>
+        <%= link_to "Edit Listing", edit_listing_path(l) %>
+        <%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
+        <br>
+        <h1>Your current listings</h1>
+        <%= link_to "Check inbox",  conversations_path %>
         <% end %>
-    <br>
-    <div class="text-center">
-    <h1>Your current listings</h1>
-    <% current_user.listings.each do |l|%>
-    <%=  "title #{l.title}"   %>
-    <br>
-    category <%= l.category_id %>
-    <br>
-    <%= link_to "Edit Listing", edit_listing_path(l) %>
-    <%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
-    <br>
-    <h1>Your current listings</h1>
-    <%= link_to "Check inbox",  conversations_path %>
-  
-    <% end %>
-    <% end %>
+        <% end %>
 </div>
+
 </div>
-å

@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Play&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -15,13 +16,9 @@
   <body>
 
    <%= render 'layouts/navigation' %>
-
      <div class="container-fluid">
-
-     
     <%= yield %>
-
-             <% flash.each do |name, msg| %>
+     <% flash.each do |name, msg| %>
 <ul>
 <li><%= msg %></li>
 </ul>
@@ -29,9 +26,6 @@
       <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     </div>
-
-
-
 
   </body>
 </html>

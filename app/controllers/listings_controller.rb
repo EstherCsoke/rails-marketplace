@@ -2,10 +2,17 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :edit, :new]
 	before_action :set_categories, only: [:new,:create, :edit]
 	
-	
-	def index
+
+  def index
+    @listings = Listing.all.sort_by(&:created_at).reverse
+    @listing.category_id = params[:category_id]
 		@listings = Listing.paginate(page: params[:page], per_page: 5)
-	end 
+  end 
+  
+  def home
+    @listings = Listing.all.sort_by(&:created_at).reverse
+    @listings = Listing.paginate(page: params[:page], per_page: 5)
+  end 
 	
 	def destroy
     Listing.find(params[:id]).destroy
@@ -18,28 +25,6 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    
-    session = Stripe::Checkout::Session.create(
-      payment_method_types: ['card'],
-      customer_email: current_user.email,
-      line_items: [{
-          name: @listing.title,
-          description: @listing.description,
-          amount: @listing.deposit * 100,
-          currency: 'aud',
-          quantity: 1,
-      }],
-      payment_intent_data: {
-          metadata: {
-              user_id: current_user.id,
-              listing_id: @listing.id
-          }
-      },
-      success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
-      cancel_url: "#{root_url}listings"
-  )
-
-  @session_id = session.id
   end 
 
   def create
@@ -47,12 +32,12 @@ class ListingsController < ApplicationController
 		@listing.category_id = params[:category_id]
 		if @listing.save
     	flash[:notice] = "Todo was created successfully"
-			render "edit"
+			redirect_to @listings
     else 
       render 'new'
     end
   end
-
+  
   def edit
 		@categories = Category.all.map { |c| [c.kind, c.id]  }
 		@listing = current_user.listings.find_by_id(params[:id])

@@ -1,9 +1,11 @@
-<nav class="navbar navbar-custom navbar-expand  justify-content-between">
+<%
+=begin%>
+ <nav class="navbar navbar-custom navbar-expand  justify-content-between">
     <div class="container-fluid">
         <ul class="navbar-nav">
      
             <li class="nav-item dropdown text-center">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-list"></span><span class="d-xl-block d-none"></span><span class="d-none d-sm-inline px-1">LISTINGS</span> </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-list"></span><span class="d-xl-block d-none"></span><span class="d-none d-sm-inline px-1">Menu</span> </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
@@ -11,12 +13,10 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-                   <li class="nav-item text-center">
-                <span class="d-none d-sm-inline d-xl-block px-1"> 
-                <%= link_to "LISTINGS", listings_path, class: "" %>
-                </span>
-            </li>
-        </ul>
+    </ul>
+                <%= link_to "All Listings", listings_path, class: "d-none d-sm-inline d-xl-block px-1" %>
+        
+    
         <ul class="nav navbar-nav">
             <li class="nav-item text-center" id="signup-btn">
              <% if user_signed_in? %>
@@ -27,8 +27,43 @@
         </ul>
               <% end %>
     </div>
-</nav>
+</nav> 
+<%
+=end%>
 
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Drones R Us</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+           <%= link_to "Home", listings_path, class: "nav-link" %> <span class="sr-only">(current)</span>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Listings", listings_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text">
+
+    <% if user_signed_in? %>
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"%></li>
+     <li class="nav-item"> <%= link_to "Profile Page", listings_path, class: "nav-link" %></li>
+      </ul>
+     <% else %>
+     <%= link_to "Login", new_user_session_path, class: "nav-link"%>
+              <% end %>
+    </span>
+  </div>
+</nav>
 
 
 

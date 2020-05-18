@@ -1,12 +1,34 @@
-<h1>Listings </h1>
 
-<%= link_to "New Category", new_category_path %>
+
+<h1> Current Listings </h1>
+
+
+<!-- List group-->
+    
 
 <% for listing in @listings %>
-  <div class="">
-    <%= link_to "#{listing.title} " , listing_path(listing.id)%>
-    <br>
-  </div>
-<% end %>
+<div class="container">
+<div class="row">
+     <div class="col-sm-4">
+    <% if listing.picture.attached? %>
+   <%= image_tag listing.picture, style: "width: 200px", class:"ml-lg-5 order-1 order-lg-2" %>
+ <% end %> 
+ </div>
+<div class="col-md-6">
+<h5 class=""><%= listing.title %></h5>
+<%= listing.price %>
+<%= listing.category.kind %>
+<br>
+<%= link_to "See Listing " , listing_path(listing.id), class: "btn btn-primary"%>
+</div>
+     <br>
 
+    <% end %>
+    </div>
+    </div>
   <%= will_paginate @listings, list_classes: %w(pagination justify-content-center) %>
+
+
+
+
+
