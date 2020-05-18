@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all.sort_by(&:created_at).reverse
-    @listing.category_id = params[:category_id]
+    @listing = params[:category_id]
 		@listings = Listing.paginate(page: params[:page], per_page: 5)
   end 
   

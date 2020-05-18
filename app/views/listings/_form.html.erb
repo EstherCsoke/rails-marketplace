@@ -1,48 +1,60 @@
+<div class="container-sm">
 <%= form_with model: listing, local: true do |form| %>
-<br>
- <div>
-    <%= form.label :title %>
-    <br>
-    <%= form.text_field :title, class: "form-control", value: listing.title %>
+<div class="col-lg-12 well">
+  <div class="row">
+    <form>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <div>
+              <label>Enter a Listing Title</label>
+              <br>
+              <%= form.text_field :title, class: "form-control", value: listing.title %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <div>
+              <label>Price</label>
+              <br>
+              <%= form.number_field :price, value: listing.price, min: 0, class:"form-control" %>
+            </div>
+            </div>
+             <div class="col-sm-12">
+            <div class="row">
+            <div class="col-sm-4 form-group">
+             <label>Choose a Drone Category</label>
+            <%= form.select :category_id, Category.all.map {|c| (c.id) } , class:"form-control"%>
+          </div>
+          </div>
+
+
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Description</label>
+                <br>
+                <%= form.text_area :description, value: listing.description, class:"" %>
+              </div>
+            </div>
+          </div>
+     
+          <div class="col-sm-4 form-group">
+            <label>Upload a Listing Photo</label>
+            <%= form.file_field :picture,class:"btn btn-outline-dark", accept:
+              'image/png,image/gif,image/jpeg,image/jpg' %>
+          </div>
+              <div class="col-sm-12">
+             <div class="row">
+          <div class="col-sm-4 form-group">
+            <%= form.submit "create", class:"btn btn-lg btn-info" %>
+          </div>
+          </div>
+          </div>
+        </div>
+    </form>
+    </div>
   </div>
-<div>
-    <%= form.label :price %>
-    <br>
-    <%= form.number_field :price, value: listing.price, min: 0 %>
 </div>
-<br>
-  <div>
-    <%= form.label :description %>
-    <br>
-    <%= form.text_area :description, value: listing.description %>
-  </div>
-<br>
-  <div>
-   <%= form.label "category" %>
-    <%= form.select :category_id, Category.all.map {|c| (c.id) } %>
-  </div>
-<br>
-
- <div class="form-group">
-  <div>
-    <%= form.label "Upload a listing photo" %>
-    <br>
- 
-     <%= form.file_field :picture,class:"btn btn-outline-dark", accept:
-    'image/png,image/gif,image/jpeg,image/jpg' %>
-  </div>
-  </div>
-
-
-
-  <div>
-    <%= form.submit "create", class: "btn btn-primary btn-lg active"%>
-  </div>
-
-
-
-
-
-<%end%>
-
-
+<% end %>

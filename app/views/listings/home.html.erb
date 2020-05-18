@@ -1,88 +1,68 @@
-
-
-<!--Carousel Wrapper-->
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-2" data-slide-to="1"></li>
-        <li data-target="#carousel-example-2" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-       
-            <div class="view">
-            <%= image_tag("bannerphoto1.jpg", alt: "drone controller", class: "d-block w-100" )%>
-                <div class="mask rgba-black-light"></div>
-            </div>
-            <div class="carousel-caption">
-                <div class="d-flex h-100 align-items-center justify-content-center">
-                <h1>Text 2</h1>
-            </div>
-            </div>
-            </div>
-
-        <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-               <%= image_tag("dronecontroller.jpg", alt: "drone controller", class: "d-block w-100" )%>
-                <div class="mask rgba-black-strong"></div>
-            </div>
-            <div class="carousel-caption">
-                <div class="d-flex h-100 align-items-center justify-content-center">
-                <h1>Text 2</h1>
-            </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-               <%= image_tag("banner3.jpg", alt: "drone controller", class: "d-block w-100" )%>
-                <div class="mask rgba-black-slight"></div>
-            </div>
-           <div class="carousel-caption">
-                <div class="d-flex h-100 align-items-center justify-content-center">
-                <h1>Text 2</h1>
-            </div>
-            </div>
-        </div>
-    </div>
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
+   <ol class="carousel-indicators">
+      <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+         <div class="view">
+            <%= image_tag("carousel5.jpg", alt:"drone controller", class:"d-block w-100" )%>
+            <div class="mask rgba-black-light"></div>
+         </div>
+      </div>
+      <div class="carousel-item">
+         <div class="view">
+            <%= image_tag("carousel3.jpg", alt: "drone controller", class: "d-block w-100" )%>
+            <div class="mask rgba-black-strong"></div>
+         </div>
+      </div>
+      <div class="carousel-item">
+         <div class="view">
+            <%= image_tag("carousel1.jpg", alt: "drone controller", class: "d-block w-100" )%>
+            <div class="mask rgba-black-slight"></div>
+         </div>
+      </div>
+   </div>
+   <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+   </a>
+   <div class="carousel-caption">
+      <div class="d-flex h-100 align-items-center justify-content-center">
+         <hgroup>
+            <h1 class="h3-responsive"> BUY AND SELL A DRONE</h1>
+            <br>
+            <p> <button type="button" class="btn btn-primary custom-btn">SIGN UP</button>
+               <button type="button" class="btn btn-primary custom-btn">REGISTER</button>
+            </p>
+         </hgroup>
+         <%= image_tag("dronepng.png", alt:"drone controller", class:"d-block w-50" )%>  
+      </div>
+   </div>
 </div>
-<!--/.Carousel Wrapper-->
-                
 </div>
-
-
-    <br>
-    <div class="text-center">
-        <h1>Latest Listings </h1>
-    </div>
-    <div class="container">
-        <div class="row">
-            <% @listings.limit(3).each do |listing| %>
-            <div class="col-md-4">
-                <div class="card mb-4 text-white bg-dark">
-                    <%= image_tag listing.picture, class:"card-img-top" %>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= listing.title %></h5>
-                        <p class="card-text"><%= listing.price %></p>
-                        <%= link_to "See Listing " , listing_path(listing.id), class: "btn btn-outline-light btn-sm"%>
-                    </div>
-                </div>
+<br>
+<div class="text-center">
+   <h1>LATEST LISTINGS </h1>
+</div>
+<div class="container">
+   <div class="row">
+      <% @listings.limit(3).each do |listing| %>
+      <div class="col-md-4">
+         <div class="card mb-4 text-white bg-dark">
+            <%= image_tag listing.picture, class:"card-img-top" %>
+            <div class="card-body">
+               <h5 class="card-title"><%= listing.title %></h5>
+               <p class="card-text"><%= listing.price %></p>
+               <%= link_to "See Listing " , listing_path(listing.id), class: "btn btn-outline-light btn-sm"%>
             </div>
-            <% end %>
-        </div>
-    </div>
+         </div>
+      </div>
+      <% end %>
+   </div>
+</div>
