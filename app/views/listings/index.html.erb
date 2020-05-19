@@ -19,58 +19,31 @@
 </div>
 </div>
 
-
-
-
-
-
  
 <br>
-<br>
 
-    <div class="container">
-    <% for listing in @listings %>
-        <div class="row mb-4">
-            <div class="col-md-12">
-              <a href="#" class="text-dark">
-              <div class="card shadow">
-                <div class="card-body">
-                    <div class="row">
-                        <div class=".col-6 .col-md-4">
-                        <div class="text-center bold-font">
-                     
-                        <%= listing.category.kind %>
-                    
-                      
-                        <br>
-                         <% if listing.picture.attached? %>
-   <%= image_tag listing.picture, style: "width: 150px; height: 150px;", class:"ml-lg-5 order-1 order-lg-2" %>
-<% end %>
-                     </div>
-                        </div>
+<div class="container">
+   <div class="row">
+       <% for listing in @listingsnew %>
+      <div class="col-md-4">
+         <div class="card mb-4 bg-light ">
 
-                        <div class=".col-6 .col-md-4 col align-self-center">
-                        <h3><b>Name: <%= listing.title %></b><br>
-                        <b>Price:</b><%= listing.price %></h3>
-                        </div>
-
-                       <div class="col-md-2 col-sm-2">
-                    <a href="#" class="btn btn-primary">See Listing</a>
-
-                       </div>
-                        <div class=".col-auto">
-
-Posted:
-                        </div>
-
-                    </div>
-                </div>
-              </div>
-              </a>
+ <%= image_tag listing.picture, class:"card-img-top" %> 
+        
+            <div class="card-body">
+            <div class="text-center">
+               <h5 class="card-title"><br><%= listing.title %></h5>
+               <p class="card-text">$<%= listing.price %></p>
+               <div class="text-center">
+               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg"%>
+</div>
+               </div>
             </div>
-        </div>
-    
-<% end %>
+         </div>
+      </div>
+      <% end %>
+   </div>
+</div>
 
 
 

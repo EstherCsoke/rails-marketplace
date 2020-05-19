@@ -1,25 +1,45 @@
-<%= @listing.title%>
-<br>
-<%= @listing.description%>
-<br>
-<%= @listing.price%>
-<br>
-<h1> category: <%= @listing.category.kind %> </h1>
 
 
 <br>
-<% if @listing.picture.attached? %>
-<%= image_tag @listing.picture, style: "width: 200px" %>
+
+
+<div class="container">
+   <div class="row">
+     <div class="col-sm-7 ">
+       <h1>       <%= @listing.title%></h1>
+       <div class="open-sans">
+ <%= @listing.category.kind %> 
+ </div>
+       <% if @listing.picture.attached? %>
+<%= image_tag @listing.picture, class:"img-fluid max-with: 500px" %>
 <%end%>
 
 
 
-
-<h2>Send Seller</h2>
 <ul>
 
 <% if current_user.id != @listing.user_id %>
-    <li><%= link_to "send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post %></li>
+    <li><%= link_to "Send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post %></li>
     <%end%>
 
 </ul>
+     </div>
+     <!-- /.col-sm-6 -->
+     <div class="col-sm-5 p-2 ">
+ 
+
+
+<br>
+<h3>Description </h3>
+<%= @listing.description%>
+<br>
+<%= @listing.price%>
+<br>
+ category: <%= @listing.category.kind %> 
+
+     </div>
+     <!-- /.col-sm-6 -->
+   </div>
+   <!-- /.row -->
+  </div>
+  <!-- /.container -->

@@ -16,10 +16,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
  
-.text-center {
-    font-family: 'Josefin Sans', sans-serif;
-    text-decoration: bold;
-}
 
 h1 {
     font-weight: bold;
@@ -89,8 +85,10 @@ h1 {
 }
 
 .card-body {
-    font-family: 'Josefin Sans', sans-serif;
-  
+    /* font-family: 'Josefin Sans', sans-serif; */
+    font-family: 'Lato', sans-serif;
+
+
     /* border: 3px solid yellow; */
 }
 
@@ -111,55 +109,40 @@ h1 {
 }
 
 .view {
-    max-width: 100%;
-    opacity: 0.8;
+    max-width: 100%; 
 }
+
+.banner-image {
+  opacity: 0.6;
+}
+
 
 .btn  {
  font-weight: bold;
  width: 100px;
- color: #757E95;
+ /* color: #757E95; */
+ color: #FFFFFF;
  font-size: 12px;
  font-family: 'Josefin Sans', sans-serif;
-
- background: #EBECF0;
-box-shadow: 1px 1px 7px #EBECF0, inset 3px 3px 8px #BDC1D1, inset -5px -4px 10px #FAFBFC;
-
+ /* background: #EBECF0;
+ box-shadow: 1px 1px 7px #EBECF0, inset 3px 3px 8px #BDC1D1, inset -5px -4px 10px #FAFBFC; */
+ background: linear-gradient(137.63deg, #26272B 9.53%, #34393F 95.92%);
+ box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E;
 }
 
-/* .btn  .black {
-  background: linear-gradient(128.11deg, #26272B 6.67%, #34393F 97.78%);
-  box-shadow: 1px 1px 5px #0D0E0F, -3px -3px 9px #353B42, inset 1px 1px 9px #2D2E35;
-  } */
-
-
-
-/* body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  } */
-  
-  /* Everything but the jumbotron gets side spacing for mobile first views */
-  /* .header,
-  .marketing,
-  .footer {
-    padding-right: 15px;
-    padding-left: 15px;
-  } */
-  
-  /* Custom page header */
-  .header {
-    border-bottom: 1px solid #e5e5e5;
-  }
-  /* Make the masthead heading the same height as the navigation */
-  .header h3 {
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
     padding-bottom: 19px;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
   }
   
-  /* Custom page footer */
+/* Custom page footer */
   .footer {
     padding-top: 19px;
     color: #777;
@@ -167,9 +150,12 @@ box-shadow: 1px 1px 7px #EBECF0, inset 3px 3px 8px #BDC1D1, inset -5px -4px 10px
   }
  
   @media (min-width: 768px) {
-    .container-sm {
-      max-width: 730px;
-      background-color: hotpink;
+    .container-md {
+      max-width: 550px;
+      background: linear-gradient(157.62deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(140.48deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
+      background-blend-mode: soft-light, normal;
+      box-shadow: 4px 3px 19px #BDC1D1, -7px -7px 16px #FAFBFC, inset 1px 1px 16px #E9EAF2, inset -1px -1px 16px #F5F6FA;
+      border-radius: 20px;
     }
   }
   .container-narrow > hr {
@@ -219,4 +205,24 @@ box-shadow: 1px 1px 7px #EBECF0, inset 3px 3px 8px #BDC1D1, inset -5px -4px 10px
     }
   }
 
+.form-group {
+  font-family: 'Lato', sans-serif;
+
+}
+
+.form-control {
+  width: 400px;
+}
+
+.col-sm-5 {
+  border: 2px solid green;
+}
+
+.gothic-font {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+.open-sans
+{
+  font-family: 'Open Sans', sans-serif;
+}
 

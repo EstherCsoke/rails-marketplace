@@ -7,19 +7,19 @@
    <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
          <div class="view">
-            <%= image_tag("carousel3.jpg", alt:"drone controller", class:"d-block w-100" )%>
+            <%= image_tag("carousel3.jpg", alt:"drone controller", class: "d-block w-100 banner-image" )%>
             <div class="mask rgba-black-light"></div>
          </div>
       </div>
       <div class="carousel-item">
          <div class="view">
-            <%= image_tag("carousel5.jpg", alt: "drone controller", class: "d-block w-100" )%>
+            <%= image_tag("carousel5.jpg", alt: "drone controller", class: "d-block w-100 banner-image" )%>
             <div class="mask rgba-black-strong"></div>
          </div>
       </div>
       <div class="carousel-item">
          <div class="view">
-            <%= image_tag("carousel1.jpg", alt: "drone controller", class: "d-block w-100" )%>
+            <%= image_tag("carousel1.jpg", alt: "drone controller", class: "d-block w-100 banner-image" )%>
             <div class="mask rgba-black-slight"></div>
          </div>
       </div>
@@ -41,11 +41,12 @@
                <button type="button" class="btn btn-outline custom-btn">REGISTER</button>
             </p>
          </hgroup>
-         <%= image_tag("dronepng.png", alt:"drone controller", class:"d-block w-50" )%>  
+         <%= image_tag("drone6.png", alt:"drone controller", class:"d-block w-50" )%>  
       </div>
    </div>
 </div>
 </div>
+<br>
 <br>
 <div class="text-center">
    <h1>LATEST LISTINGS </h1>
@@ -55,11 +56,17 @@
       <% @listings.limit(3).each do |listing| %>
       <div class="col-md-4">
          <div class="card mb-4 bg-light ">
-            <%= image_tag listing.picture, class:"card-img-top" %>
+
+ <%= image_tag listing.picture, class:"card-img-top" %> 
+        
             <div class="card-body">
-               <h5 class="card-title"><%= listing.title %></h5>
-               <p class="card-text"><%= listing.price %></p>
-               <%= link_to "See Listing " , listing_path(listing.id), class: "btn btn-outline-light btn-sm"%>
+            <div class="text-center">
+               <h5 class="card-title"><br><%= listing.title %></h5>
+               <p class="card-text">$<%= listing.price %></p>
+               <div class="text-center">
+               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg"%>
+</div>
+               </div>
             </div>
          </div>
       </div>
