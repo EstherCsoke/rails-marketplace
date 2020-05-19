@@ -119,7 +119,7 @@ h1 {
 
 .btn  {
  font-weight: bold;
- width: 100px;
+ width: 200px;
  /* color: #757E95; */
  color: #FFFFFF;
  font-size: 12px;
@@ -129,6 +129,12 @@ h1 {
  background: linear-gradient(137.63deg, #26272B 9.53%, #34393F 95.92%);
  box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E;
 }
+
+.nowrap {
+  white-space: nowrap;
+}
+
+
 
 /* Custom page header */
 .header {
@@ -215,7 +221,9 @@ h1 {
 }
 
 .col-sm-5 {
-  border: 2px solid green;
+  /* border: 2px solid black; */
+ 
+ 
 }
 
 .gothic-font {
@@ -226,3 +234,8 @@ h1 {
   font-family: 'Open Sans', sans-serif;
 }
 
+.bottom-of-container {
+  position:absolute;
+  bottom:0;
+
+}
