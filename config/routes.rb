@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payment/index'
+  get 'payment/pay'
   get 'messages/index'
   get 'conversations/index'
   devise_for :users
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   get '/listings/:id', to: 'listings#show', as: 'listing'
   get '/pages/profile', to: 'users#profile', as: 'profile'
 
-
+  resources :charges, only: [:new, :create]
 # the edit routes 
 # the get edit_listing is rendering out the html thats required to update the listing and will give back form
 # wont physically update the form

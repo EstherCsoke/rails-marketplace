@@ -6,7 +6,8 @@ class ListingsController < ApplicationController
   def index
     @listing = params[:category_id]
     @listingsnew = Listing.all.sort_by(&:created_at).reverse
-		@listings = Listing.paginate(page: params[:page], per_page: 5)
+    @listings = Listing.paginate(page: params[:page], per_page: 5)
+
   end 
   
   def home
@@ -25,6 +26,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    generate_stripe_session
   end 
 
   def create
@@ -67,5 +69,27 @@ end
 
 def set_categories
 	@categories = Category.all
+end
+
+def generate_stripe_session
+  session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user.email,
+      line_items: [{
+          name: "Coder Academy",
+          currency: 'aud',
+          quantity: 1,
+          amount: @listing.price
+      }],
+      payment_intent_data: {
+          metadata: {
+              user_id: current_user.id,
+          }
+      },
+      success_url: "#{root_url}payment/index",
+      cancel_url: "#{root_url}"
+  )
+
+  @session_id = session.id
 end
 

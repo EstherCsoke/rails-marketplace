@@ -13,16 +13,26 @@
       <%= image_tag @listing.picture, class:"img-fluid max-with: 500px" %>
       <%end%>
       <ul>
-        <% if current_user.id != @listing.user_id %>
-        <li><%= link_to "Send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg" %></li>
-        <%end%>
+      
       </ul>
     </div>
     <div class="col-sm-5 p-2 flex-column margin-top text-center">
       <h4>Price $<%= @listing.price%></h4>
       <br>
       <p><%= @listing.description%></p>
+
+        <% if current_user.id != @listing.user_id %>
+        <%= link_to "Send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg" %>
+        <br>
+        <button data-stripe="donate">Quick Buy</button>
+        <%end%>
       <br>
+
+
+
+
+
+
      <%= link_to "Back to Listings" , listing_path, class: "btn btn-outline-light btn-lg nowrap"%>
 
     </div>
@@ -31,3 +41,18 @@
   <!-- /.row -->
 </div>
 <!-- /.container -->
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  document
+    .querySelector("[data-stripe='donate']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>

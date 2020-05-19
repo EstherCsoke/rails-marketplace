@@ -1,5 +1,8 @@
-<div class="container-md">
-<div class="text-center">
+
+
+<div class="container">
+   <div class="row">
+  <div class="col-sm-6 flex-column ">
     <h1>Profile Page </h1>
   
     <br>
@@ -10,12 +13,14 @@
         <%= image_tag("profile/defaultimage.png", alt: "drone controller", class: "rounded-circle img-thumbnail") %>
 <br>
     <% end %>
-      <h2>Your current listings</h2>
        <% if user_signed_in? %>
-    
+      <%= link_to "Check inbox",  conversations_path %>
+      <br>
     <%= link_to "Edit Profile Information", edit_user_registration_path %>
     <br>
-      
+    </div>
+    <div class="col-sm-6 p-2 flex-column ">
+        <h4>Your current listings</h4>
         <% current_user.listings.each do |l|%>
         <%=  "title #{l.title}"   %>
         <br>
@@ -24,10 +29,12 @@
         <%= link_to "Edit Listing", edit_listing_path(l) %>
         <%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
         <br>
-        <h1>Your current listings</h1>
-        <%= link_to "Check inbox",  conversations_path %>
         <% end %>
         <% end %>
+  
 </div>
 </div>
 </div>
+</div>
+
+
