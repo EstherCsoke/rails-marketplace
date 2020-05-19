@@ -31,11 +31,14 @@ class ListingsController < ApplicationController
   def create
 		@listing = current_user.listings.create(listing_params)
 		@listing.category_id = params[:category_id]
-		if @listing.save
-    	flash[:notice] = "Todo was created successfully"
-			redirect_to @listings
+    if @listing.save
+
+      flash[:notice] = "Listing was created successfully"
+  
+      redirect_to root_path  
     else 
       render 'new'
+      flash[:notice] = "Opps! The listing was not created!"
     end
   end
   
@@ -85,10 +88,14 @@ def generate_stripe_session
               user_id: current_user.id,
           }
       },
-      success_url: "#{root_url}payment/index",
+      success_url: "#{root_url}payments/success",
       cancel_url: "#{root_url}"
   )
 
   @session_id = session.id
 end
 
+def initialize_stock
+  # Everyone does not have a car
+  listing.in_stock = 't'
+end
