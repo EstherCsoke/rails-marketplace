@@ -88,14 +88,11 @@ def generate_stripe_session
               user_id: current_user.id,
           }
       },
-      success_url: "#{root_url}payments/success",
+      success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
       cancel_url: "#{root_url}"
   )
+
 
   @session_id = session.id
 end
 
-def initialize_stock
-  # Everyone does not have a car
-  listing.in_stock = 't'
-end

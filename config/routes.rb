@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'payments/index'
-  get 'payments/pay'
+  get 'payments/index', to: "payments#index"
+  get 'payments/pay', to: "payments#pay"
+  get "/payments/success", to: "payments#success"
   get 'messages/index'
   get 'conversations/index'
   devise_for :users
@@ -26,5 +27,7 @@ Rails.application.routes.draw do
 
   resources :conversations, only: [:index, :create] do
   resources :messages, only: [:index, :create]
+
+ 
   end
 end
