@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   def index
+
+
   end
 
   def pay
@@ -7,4 +9,12 @@ class PaymentsController < ApplicationController
 
   def success
   end 
+  
+  
+ 
+
+  
 end
+
+
+

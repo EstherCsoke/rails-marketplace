@@ -4,9 +4,10 @@ class ListingsController < ApplicationController
 	
 
   def index
-    @listing = params[:category_id]
-    @listingsnew = Listing.all.sort_by(&:created_at).reverse
-    @listings = Listing.paginate(page: params[:page], per_page: 5)
+    @listings = params[:category_id]
+    @listings = Listing.all.sort_by(&:created_at).reverse
+    @listings = Listing.where(in_stock: true)
+    # @listings = Listing.paginate(page: params[:page], per_page: 5)
   end 
   
   def home
@@ -24,17 +25,19 @@ class ListingsController < ApplicationController
 	end 
 
   def show
-    @listing = Listing.find(params[:id])
+    @listing = Listing.find(params[:id]) 
     generate_stripe_session
+    @listing.in_stock = false
+    @listing.save
+
   end 
+
 
   def create
 		@listing = current_user.listings.create(listing_params)
 		@listing.category_id = params[:category_id]
     if @listing.save
-
       flash[:notice] = "Listing was created successfully"
-  
       redirect_to root_path  
     else 
       render 'new'
@@ -42,6 +45,7 @@ class ListingsController < ApplicationController
     end
   end
   
+
   def edit
 		@categories = Category.all.map { |c| [c.kind, c.id]  }
 		@listing = current_user.listings.find_by_id(params[:id])
@@ -85,14 +89,17 @@ def generate_stripe_session
       }],
       payment_intent_data: {
           metadata: {
-              user_id: current_user.id,
+              user_id: current_user.id, listing_id: @listing.id, in_stock: @listing.in_stock 
           }
       },
+    
+    
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
       cancel_url: "#{root_url}"
   )
 
 
   @session_id = session.id
+  
 end
 

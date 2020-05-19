@@ -24,9 +24,10 @@
         <% if current_user.id != @listing.user_id %>
         <%= link_to "Send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg" %>
         <br>
-        <button data-stripe="donate">Quick Buy</button>
+        <button data-stripe="quickbuy">Quick Buy</button>
         <%end%>
       <br>
+
 
 
 
@@ -45,7 +46,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   document
-    .querySelector("[data-stripe='donate']")
+    .querySelector("[data-stripe='quickbuy']")
     .addEventListener("click", () => {
       const stripe = Stripe(
         "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
@@ -56,3 +57,4 @@
       });
     });
 </script>
+
