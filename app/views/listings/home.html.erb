@@ -7,13 +7,13 @@
    <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
          <div class="view">
-            <%= image_tag("carousel5.jpg", alt:"drone controller", class:"d-block w-100" )%>
+            <%= image_tag("carousel3.jpg", alt:"drone controller", class:"d-block w-100" )%>
             <div class="mask rgba-black-light"></div>
          </div>
       </div>
       <div class="carousel-item">
          <div class="view">
-            <%= image_tag("carousel3.jpg", alt: "drone controller", class: "d-block w-100" )%>
+            <%= image_tag("carousel5.jpg", alt: "drone controller", class: "d-block w-100" )%>
             <div class="mask rgba-black-strong"></div>
          </div>
       </div>
@@ -37,8 +37,8 @@
          <hgroup>
             <h1 class="h3-responsive"> BUY AND SELL A DRONE</h1>
             <br>
-            <p> <button type="button" class="btn btn-primary custom-btn">SIGN UP</button>
-               <button type="button" class="btn btn-primary custom-btn">REGISTER</button>
+            <p> <button type="button" class="btn btn-outline custom-btn">SIGN UP</button>
+               <button type="button" class="btn btn-outline custom-btn">REGISTER</button>
             </p>
          </hgroup>
          <%= image_tag("dronepng.png", alt:"drone controller", class:"d-block w-50" )%>  
@@ -54,7 +54,7 @@
    <div class="row">
       <% @listings.limit(3).each do |listing| %>
       <div class="col-md-4">
-         <div class="card mb-4 text-white bg-dark">
+         <div class="card mb-4 bg-light ">
             <%= image_tag listing.picture, class:"card-img-top" %>
             <div class="card-body">
                <h5 class="card-title"><%= listing.title %></h5>
