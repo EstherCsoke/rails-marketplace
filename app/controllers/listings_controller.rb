@@ -7,7 +7,6 @@ class ListingsController < ApplicationController
     @listing = params[:category_id]
     @listingsnew = Listing.all.sort_by(&:created_at).reverse
     @listings = Listing.paginate(page: params[:page], per_page: 5)
-
   end 
   
   def home
@@ -59,12 +58,12 @@ class ListingsController < ApplicationController
       redirect_back(fallback_location: root_path) 
       end
   end
-    
+
   end 
 
 private
 def listing_params
-  params.require(:listing).permit(:title, :description,:price, :picture, :category_id)
+  params.require(:listing).permit(:title, :description,:price, :picture, :category_id, :in_stock)
 end 
 
 def set_categories

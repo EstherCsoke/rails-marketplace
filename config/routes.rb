@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'payment/index'
-  get 'payment/pay'
+  get 'payments/index'
+  get 'payments/pay'
   get 'messages/index'
   get 'conversations/index'
   devise_for :users

@@ -1,2 +1,2 @@
-module PaymentHelper
+module PaymentsHelper
 end
