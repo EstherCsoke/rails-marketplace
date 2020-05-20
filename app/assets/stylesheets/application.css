@@ -26,9 +26,12 @@ h1 {
     height: 110px;
 }
 
-.nav-link {
-  /* font-family: 'Open Sans', sans-serif; */
+.nav-link .active {
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
+  color: #505e6c;
+
+
 }
 
 .lato-font {
@@ -111,6 +114,7 @@ h1 {
 .banner-image {
   opacity: 0.9;
 }
+
 
 
 .btn  {

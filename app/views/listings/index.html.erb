@@ -6,12 +6,13 @@
             <div class="mask rgba-black-light">
             </div>
              <div class="carousel-caption">
-      <div class="d-flex h-100 align-items-center justify-content-center">
-         <hgroup>
+      <div class="d-flex h-100 align-items-center ">
+       
             <h1 class="h3-responsive">DRONES FOR SALE</h1>
-            <br>
-         </hgroup>
-         <%= image_tag("dronepng2.png", alt:"drone controller", class:"d-block w-50" )%>  
+       
+    
+         <%= image_tag("mavic1.png", alt:"drone controller", class:"d-block w-50" )%>  
+      
       </div>
    </div>
          </div>
@@ -21,7 +22,6 @@
 
  
 <br>
-
 <div class="container">
    <div class="row">
        <% for listing in @listings %>
@@ -29,7 +29,7 @@
          <div class="card mb-4 bg-light ">
 
  <%= image_tag listing.picture, class:"card-img-top" %> 
-        
+
             <div class="card-body">
             <div class="text-center">
                <h5 class="card-title"><br><%= listing.title %></h5>
