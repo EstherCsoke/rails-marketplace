@@ -17,15 +17,16 @@
    </head>
    <body>
       <%= render 'layouts/navigation' %>
-      <div class="container-fluid">
+    
          <%= yield %>
-         <% flash.each do |name, msg| %>
-         <ul>
-            <li><%= msg %></li>
-         </ul>
-         <% end %>
-         <p class="notice"><%= notice %></p>
-         <p class="alert"><%= alert %></p>
-      </div>
+       
+
+  
    </body>
 </html>
+
+
+
+
+
+
