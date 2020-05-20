@@ -17,6 +17,20 @@
 @import "bootstrap";
  
 
+html, body {
+  min-height: 100%;
+  /* border: 3px solid saddlebrown */
+}
+
+
+#dark-background {
+ 
+  border: 2px solid green;
+  background: url(banner3.jpg) no-repeat center center fixed; 
+  height: 1000px;
+
+}
+
 h1 {
     font-weight: bold;
 }
@@ -47,20 +61,20 @@ h1 {
     background-size: cover;
 }
 
-.register-photo .form-container {
+/* .register-photo .form-container {
     display: table;
     max-width: 900px;
     height: 90px;
     width: 90%;
     margin: 0 auto;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-}
+} */
 
 .register-photo form {
     display: table-cell;
     width: 400px;
     background-color: #ffffff;
-    padding: 40px 60px;
+    /* padding: 40px 60px; */
     color: #505e6c;
 }
 
@@ -134,7 +148,8 @@ h1 {
  
   @media (min-width: 768px) {
     .container-md {
-      max-width: 550px;
+
+  
       background: linear-gradient(157.62deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(140.48deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
       background-blend-mode: soft-light, normal;
       box-shadow: 4px 3px 19px #BDC1D1, -7px -7px 16px #FAFBFC, inset 1px 1px 16px #E9EAF2, inset -1px -1px 16px #F5F6FA;
@@ -218,9 +233,6 @@ h1 {
   letter-spacing: 0.0625em;
 }
 
-.dark-background {
-  background: url("darksand.jpg");
-  border: 2px solid green;
-  background-attachment: fixed;
-
+.josesin-font {
+  font-family: 'Josefin Sans', sans-serif;
 }
