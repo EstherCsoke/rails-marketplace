@@ -24,11 +24,9 @@ html, body {
 
 
 #dark-background {
- 
-  border: 2px solid green;
+  /* border: 2px solid green; */
   background: url(banner3.jpg) no-repeat center center fixed; 
   height: 1000px;
-
 }
 
 h1 {
@@ -47,8 +45,9 @@ h1 {
 
 .navbar-brand {
   position: relative;
-  width: 100px;
+  width: 70px;
   left: 15px;
+  color: #0D0E0F;
 
 }
 
@@ -126,9 +125,14 @@ h1 {
  width: 200px;
  color: #FFFFFF;
  font-size: 12px;
- font-family: 'Josefin Sans', sans-serif;
- background: linear-gradient(137.63deg, #26272B 9.53%, #34393F 95.92%);
- box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E;
+ /* background: linear-gradient(137.63deg, #26272B 9.53%, #34393F 95.92%);
+ box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E; */
+
+}
+
+.dark-button {
+  background: linear-gradient(136.85deg, #1F2328 0%, #1A1C1F 100%);
+  border-radius: 8px;
 }
 
 .nowrap {
@@ -155,19 +159,7 @@ h1 {
     border-top: 1px solid #e5e5e5;
   }
  
-  @media (min-width: 768px) {
-    .container-md {
 
-  
-      background: linear-gradient(157.62deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(140.48deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
-      background-blend-mode: soft-light, normal;
-      box-shadow: 4px 3px 19px #BDC1D1, -7px -7px 16px #FAFBFC, inset 1px 1px 16px #E9EAF2, inset -1px -1px 16px #F5F6FA;
-      border-radius: 20px;
-      background: linear-gradient(0.07deg, #2E3138 0.35%, #3D4148 192.77%);
-box-shadow: 3.88889px 3.88889px 16.6667px #1F2427;
-border-radius: 24px 24px 30px 30px;
-    }
-  }
 
   .container-narrow > hr {
     margin: 30px 0;
@@ -242,9 +234,16 @@ border-radius: 24px 24px 30px 30px;
 
 
 .letter-spacing {
-  letter-spacing: 0.0625em;
+  padding-top: 5px;
+  letter-spacing: 0.125em;
 }
 
 .josesin-font {
   font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+.nanum-font {
+font-family: 'Nanum Gothic', sans-serif;
 }

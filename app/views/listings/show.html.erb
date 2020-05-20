@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col-sm-7 ">
-      <h1>       <%= @listing.title%></h1>
+      <h1><%= @listing.title%></h1>
       <div class="open-sans">
         <%= @listing.category.kind %> 
         <br>
@@ -22,11 +22,13 @@
       <p><%= @listing.description%></p>
 
         <% if current_user.id != @listing.user_id %>
-        <%= link_to "Send message", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg" %>
+        <%= link_to "Message Seller", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg dark-button" %>
         <br>
-        <button data-stripe="quickbuy">Quick Buy</button>
+        <button class="btn btn-primary btn-outline-light btn-lg " data-stripe="quickbuy">Quick Buy</button>
         <%end%>
       <br>
+<br>
+         <%= link_to "Back" , listing_path, class: " "%>
 
 
 
@@ -34,7 +36,6 @@
 
 
 
-     <%= link_to "Back to Listings" , listing_path, class: "btn btn-outline-light btn-lg nowrap"%>
 
     </div>
     <!-- /.col-sm-6 -->

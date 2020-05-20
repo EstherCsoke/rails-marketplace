@@ -13,13 +13,13 @@
       </div>
       <div class="carousel-item">
          <div class="view">
-            <%= image_tag("carousel5.jpg", alt: "drone controller", class: "d-block w-100 banner-image" )%>
+            <%= image_tag("carousel5.jpg", alt: "drone controller", class: "d-block w-100 " )%>
             <div class="mask rgba-black-strong"></div>
          </div>
       </div>
       <div class="carousel-item">
          <div class="view">
-            <%= image_tag("carousel1.jpg", alt: "drone controller", class: "d-block w-100 banner-image" )%>
+            <%= image_tag("darksand.jpg", alt: "drone controller", class: "d-block w-100" )%>
             <div class="mask rgba-black-slight"></div>
          </div>
       </div>
@@ -35,11 +35,11 @@
    <div class="carousel-caption">
       <div class="d-flex h-100 align-items-center justify-content-center">
          <hgroup>
-            <h1 class="h3-responsive"> TECH DRONE</h1>
-              <h5 class="h3-responsive letter-spacing"> BUY AND SELL A DRONE</h5>
+            <h1 class="h3-responsive"> DRONE</h1>
+              <h4 class="h3-responsive letter-spacing nanum-font "> BUY AND SELL A DRONE</h4>
             <br>
-            <button type="button" class="btn btn-outline custom-btn nowrap">SIGN UP</button>
-               <button type="button" class="btn btn-outline custom-btn nowrap">REGISTER</button>
+            <button type="button" class="btn btn-outline custom-btn nowrap lato-font">SIGN UP</button>
+               <button type="button" class="btn btn-outline custom-btn nowrap lato-font">REGISTER</button>
            
          </hgroup>
          <%= image_tag("dronepng2.png", alt:"drone controller", class:"d-block w-50" )%>  
@@ -59,7 +59,6 @@
       <% @listings.limit(3).each do |listing| %>
       <div class="col-md-4">
          <div class="card mb-4 bg-light ">
-
  <%= image_tag listing.picture, class:"card-img-top" %> 
         
             <div class="card-body lato-font">
