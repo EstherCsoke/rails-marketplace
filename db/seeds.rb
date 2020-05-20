@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-1.times do |category| 
-    Category.create (kind: "Fixed Wing Drones")
 
-    )
-end 
+
+
