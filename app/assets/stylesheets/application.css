@@ -40,11 +40,19 @@ h1 {
     height: 110px;
 }
 
-.nav-link .active {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
+#home-font {
   color: #505e6c;
+
 }
+
+.navbar-brand {
+  position: relative;
+  width: 100px;
+  left: 15px;
+
+}
+
+
 
 .lato-font {
   font-family: 'Lato', sans-serif;
@@ -76,6 +84,7 @@ h1 {
     background-color: #ffffff;
     /* padding: 40px 60px; */
     color: #505e6c;
+    
 }
 
 .col-md-4 {
@@ -142,7 +151,7 @@ h1 {
 /* Custom page footer */
   .footer {
     padding-top: 19px;
-    color: #777;
+    color: #505e6c;
     border-top: 1px solid #e5e5e5;
   }
  
@@ -154,6 +163,9 @@ h1 {
       background-blend-mode: soft-light, normal;
       box-shadow: 4px 3px 19px #BDC1D1, -7px -7px 16px #FAFBFC, inset 1px 1px 16px #E9EAF2, inset -1px -1px 16px #F5F6FA;
       border-radius: 20px;
+      background: linear-gradient(0.07deg, #2E3138 0.35%, #3D4148 192.77%);
+box-shadow: 3.88889px 3.88889px 16.6667px #1F2427;
+border-radius: 24px 24px 30px 30px;
     }
   }
 

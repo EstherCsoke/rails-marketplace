@@ -1,29 +1,36 @@
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">DRONE</a>
+           <%= link_to root_path do %>
+   <%= image_tag "dronelogo.png", class: "navbar-brand" %>
+<% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav nav-fill w-100">
-      <li class="nav-item active">
-        <%= link_to "HOME", root_path, class: "nav-link" %> <span class="sr-only">(current)</span>
-      </li>
-      <li> / </li>
-      <li class="nav-item">
+    <%
+=begin%>
+ <ul class="navbar-nav nav-fill w-50 ml-auto mx-auto "> 
+<%
+=end%>
+    <ul class="navbar-nav nav-fill w-50 ml-auto mx-auto text-center">
+
+      <li class="nav-item text-center">
         <%= link_to "SELL", new_listing_path, class: "nav-link" %>
       <li> / </li>
       </li>
-      <li class="nav-item">
+      <li class="nav-item text-center">
         <%= link_to "BUY", listings_path, class: "nav-link" %>
       </li>
     </ul>
-    <span class="navbar-text">
+    <span class="navbar-text ">
       <% if user_signed_in? %>
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"> <%= link_to "PROFILE", profile_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "nav-link"%></li>
-        <li>
-        </li>
+      <li class="nav-item"> <%= link_to "ACCOUNT", profile_path, class: "nav-link" %>
+
+      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "nav-link"%></li>
+     
       </ul>
       <% else %>
       <%= link_to "LOGIN", new_user_session_path, class: "nav-link"%>
