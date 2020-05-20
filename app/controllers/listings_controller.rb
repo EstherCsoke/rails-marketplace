@@ -12,7 +12,8 @@ class ListingsController < ApplicationController
   
   def home
     @listings = Listing.all.sort_by(&:created_at).reverse
-    @listings = Listing.paginate(page: params[:page], per_page: 5)
+    @listings = Listing.where(in_stock: true)
+    # @listings = Listing.paginate(page: params[:page], per_page: 5)
   end 
 	
 	def destroy
@@ -27,9 +28,6 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id]) 
     generate_stripe_session
-    @listing.in_stock = false
-    @listing.save
-
   end 
 
 
@@ -41,7 +39,7 @@ class ListingsController < ApplicationController
       redirect_to root_path  
     else 
       render 'new'
-      flash[:notice] = "Opps! The listing was not created!"
+      # flash[:notice] = "Opps! The listing was not created!"
     end
   end
   
@@ -98,7 +96,8 @@ def generate_stripe_session
       cancel_url: "#{root_url}"
   )
 
-
+  # @listing.in_stock = false
+  # @listing.save
   @session_id = session.id
   
 end
