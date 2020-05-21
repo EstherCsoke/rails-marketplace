@@ -147,7 +147,13 @@ Conversation
 * A user belongs to a sender with a foreign key of the sender
 * A receiver also belongs to the conversation with the foreign key of receiver
 * The conversation has many messages in it and the messages will be deleted if the conversation is destroyed.
-* 
+* A user can be either a sender or a receiver and that is coded into the models relationship
+
+
+Messages
+* A message belongs to a conversation
+* It belongs to the user, and is validated in the presence of the message body and the conversation id and the user id
+
 
 
 
