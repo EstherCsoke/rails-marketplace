@@ -142,6 +142,7 @@ Listings:
 * A listing belongs to a user on the site and will only be validated if the title, description, price, picture and category are chosen
 * The listing can have only one picture attached
 * The listing belongs to a category
+* The listing has an in_stock boolean prefixed to false. It will update to true when listing is posted. 
 
 Conversation
 * A user belongs to a sender with a foreign key of the sender
@@ -153,6 +154,9 @@ Conversation
 Messages
 * A message belongs to a conversation
 * It belongs to the user, and is validated in the presence of the message body and the conversation id and the user id
+* It has the foreign key of user
+* There is a boolean indicating whether the message is read or not
+
 
 
 

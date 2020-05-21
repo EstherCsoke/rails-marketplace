@@ -67,12 +67,12 @@ GEM
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bindex (0.8.1)
-    bootsnap (1.4.6)
-      msgpack (~> 1.0)
     bootstrap (4.4.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-sass (3.2.0.4)
+      sass (~> 3.2)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.32.1)
@@ -133,7 +133,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    msgpack (1.3.3)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -244,8 +243,8 @@ PLATFORMS
 DEPENDENCIES
   activestorage
   aws-sdk-s3 (~> 1.64)
-  bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
+  bootstrap-sass (~> 3.2.0)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
