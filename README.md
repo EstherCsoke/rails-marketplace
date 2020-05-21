@@ -1,9 +1,14 @@
 # DroneTech Marketplace
+
+![banner](markdown-images/banner.png)
 ---
 Deployed Link:
 
+https://gentle-basin-79145.herokuapp.com/
+
 
 Github: 
+
 https://github.com/EstherCsoke/rails-marketplace
 
 ---
@@ -120,8 +125,6 @@ Category
 
 
 ![ERD](markdown-images/sche.png)
-
-
 
 
 
