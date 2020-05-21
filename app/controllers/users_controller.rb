@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-
-def home
     
-end 
+    def home
 
-def profile
+    end 
 
-end 
+    def profile
 
+    end 
+
+    def posts
+    end
 end 

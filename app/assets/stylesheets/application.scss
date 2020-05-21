@@ -24,21 +24,30 @@ html, body {
 }
 
 #image-background {
-background: url(bannerphoto1.jpg) no-repeat center center fixed; 
+background: url(bannerphoto1.jpg) center no-repeat; 
 height: 1000px;
 background-position:50% 50%;  /* Sets reference point to scale from */
 background-size:cover;        
-
 }
+
+.success-background {
+  background: url(dronelogin.jpg) no-repeat center center fixed; 
+  height: 1000px;
+  background-position:50% 50%;  /* Sets reference point to scale from */
+  background-size:cover;   
+  border: 2px solid green;
+}
+
+
 
 h1 {
     font-weight: bold;
 }
 
-/* .rounded-circle {
-    width: 110px;
-    height: 110px;
-} */
+ .rounded-circle {
+  width: 250px;
+  height: 250px;
+}
 
 #nav-font {
   color: #505e6c;
@@ -202,6 +211,26 @@ h1 {
   width: 400px;
 }
 
+
+.center-box
+{
+  margin: 0 auto;
+  max-width: 550px;
+  height: 170px;
+  border-radius: 3px;
+}
+.center-box p
+{
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  padding: 30px;    
+  text-align:center;
+}
+
+
+
+
 .center-container {
 
 height: 100%;
@@ -263,7 +292,6 @@ border-radius: 40px;
   min-width: 400px;
 }
 
-
 .success {
   color: #3DC763;
   font-size: 20px;
@@ -274,7 +302,13 @@ border-radius: 40px;
 }
 
 .divider {
-  padding-top: 5px;
+  padding-top: 10px;
+}
+
+.align-center {
+  display:flex;
+  align-items:center;
+  min-height:100vh;
 }
 
 
@@ -311,6 +345,17 @@ border-radius: 40px;
   position: absolute;
   top: -12px;
   right: 14px;
-  z-index: 9;}
+  z-index: 9;
+}
 
 
+.bg-grey {
+  background: linear-gradient(147.42deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(128deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
+background-blend-mode: soft-light, normal;
+border-radius: 40px;
+}
+
+
+.small-box {
+height: 300px;
+}

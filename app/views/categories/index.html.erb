@@ -1,0 +1,42 @@
+<h1>Index</h1>
+
+<br>
+<div class="container">
+   <div class="row">
+       <% for c in @categories %>
+      <div class="col-md-4">
+         <div class="card mb-4 bg-light ">
+
+<% if listing.picture.attached?%>
+ <%= image_tag listing.picture, class:"card-img-top" %> 
+  <% else %>
+ <%= image_tag("dronepng.png", alt:"drone", class: "card-img-top" )%>
+
+ <% end %>
+
+            <div class="card-body">
+            <div class="text-center">
+               <h5 class="card-title"><br><%= listing.title %></h5>
+               <p class="card-text">$<%= listing.price %></p>
+               <div class="text-center">
+               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg dark-button"%>
+</div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <% end %>
+   </div>
+</div>
+
+
+<div class="text-center">
+   
+    <%= will_paginate @listings, :container => false %>
+     </div>
+
+
+
+
+
+

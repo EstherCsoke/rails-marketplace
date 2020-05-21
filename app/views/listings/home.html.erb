@@ -40,8 +40,6 @@
             <br>
              <%= link_to "LOG IN" , new_user_session_path, class: "btn btn-outline custom-btn nowrap lato-font dark-button"%>
              <%= link_to "SIGN UP" , new_user_registration_path, class: "btn btn-outline custom-btn nowrap lato-font dark-button"%>
-
-           
          </hgroup>
          <%= image_tag("dronepng2.png", alt:"drone controller", class:"d-block w-50" )%>  
       </div>
@@ -58,9 +56,12 @@
       <% @listings.limit(3).each do |listing| %>
       <div class="col-md-4">
          <div class="card mb-4 bg-light ">
- <%= image_tag listing.picture, class:"card-img-top" %> 
-        
-            <div class="card-body lato-font">
+         <% if listing.picture.attached?%>
+         <%= image_tag listing.picture, class:"card-img-top" %> 
+         <% else %>
+         <%= image_tag("dronepng.png", alt:"drone", class: "card-img-top" )%>
+         <% end %>
+         <div class="card-body lato-font">
             <div class="text-center">
                <h5 class="card-title"><br><%= listing.title %></h5>
                <p class="card-text">$<%= listing.price %></p>

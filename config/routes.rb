@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/listings', to: 'listings#create'
   get '/listings/:id', to: 'listings#show', as: 'listing'
   get '/pages/profile', to: 'users#profile', as: 'profile'
-
+  get 'users/posts', to: 'users#posts', as: 'post'
  
 # the edit routes 
 # the get edit_listing is rendering out the html thats required to update the listing and will give back form

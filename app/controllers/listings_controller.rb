@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
-	before_action :authenticate_user!, only: [:create, :edit, :new, :conversations]
+	before_action :authenticate_user!, only: [:create, :edit, :new, :conversations, :show]
 	before_action :set_categories, only: [:new,:create, :edit]
 
   def index
     @listings = params[:category_id]
     sort_listings_by_new
-    @listings = Listing.where(in_stock: true)
+    # @listings = Listing.where(in_stock: true)
     @listings = Listing.paginate(page: params[:page], per_page: 6)
   end 
   
@@ -18,7 +18,7 @@ class ListingsController < ApplicationController
     Listing.find(params[:id]).destroy
     redirect_to root_path
 	end
-	
+  
 	def new 
 		@listing = Listing.new
 	end 
@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
 		@listing = current_user.listings.create(listing_params)
 		# @listing.category_id = params[:category_id]
     if @listing.save
-      flash[:success] = "Your Listing was Created"
+      success_message
       redirect_to @listing
     else 
       # render 'new'
@@ -49,13 +49,14 @@ class ListingsController < ApplicationController
   def update
     find_user_listing
     if @listing.update(listing_params)
-      flash[:success] = "This Listing was Edited"
+      success_message
       redirect_to listing_path
     else
       render 'edit'
       flash[:error] = "Todo was NOT saved"
     end
   end
+  
 
 end
 
@@ -75,7 +76,11 @@ def set_categories
 end
 
 def sort_listings_by_new
-  @listings = Listing.all.sort_by(&:created_at).reverse
+  @listings = Listing.all.sort_by(&:created_at)
+end 
+
+def success_message
+  flash[:success] = "Successful!"
 end 
 
 def generate_stripe_session
@@ -86,12 +91,14 @@ def generate_stripe_session
           name: current_user.id,
           currency: 'aud',
           quantity: 1,
-          amount: @listing.price
+          amount: @listing.price*100
+          
        
       }],
       payment_intent_data: {
           metadata: {
-              user_id: current_user.id, listing_id: @listing.id, in_stock: @listing.in_stock
+              user_id: current_user.id, listing_id: @listing.id,
+              in_stock: @listing.in_stock = false
           }
       },
   
@@ -99,6 +106,7 @@ def generate_stripe_session
       cancel_url: "#{root_url}listings"
   )
 
+  
  
   @session_id = session.id
   

@@ -1,33 +1,28 @@
 <div class="text-center ">
-<div class="align-self-center">
-  <% @messages.each do |message| %>
+<div id="messages">
+  <% @conversation.messages.each do |message| %>
     <% if message.body %>
-    
-	  <br>
-          <div class="msg-container josesin-font">
-			<br>
-		  <h5>Sent By:<%= message.user.email %></h5>
-       <p><%= message.created_at %></p>
-	<br>
-	        <p><%= message.body %></p>
+      <div class="media">
+        <div class="media-left">
+        <%= image_tag("dronepin.png", class:"media-object user-img") %> 
         </div>
+        <div class="media-body">
+          <h5 class="media-heading"><%= message.user.email %> <small class="text-muted"><%= message.created_at %></small></h5>
+          <p><%= message.body %></p>
+        </div>
+      </div>
     <% end %>
   <% end %>
-
+</div>
 <%= form_for [@conversation, @message] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
+  <div class="form-group">
+    <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5 %>
   </div>
 
-  <%= f.submit "Send" %>
+  <%= f.submit "Send", class: "btn btn-primary pull-right" %>
 <% end %>
-
-</div>
-</div>
+ </div>
 
 
 
-			
-
-
-
+ 
