@@ -80,7 +80,7 @@ gem 'sprockets', '~> 3.7.2'
 
 #creates pages for listings
 gem 'will_paginate', '3.1.7'
-gem 'will_paginate-bootstrap4'
+
 
 # gem 'forecast_io'
 
