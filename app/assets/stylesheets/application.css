@@ -15,6 +15,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "puffly";
  
 
 html, body {
@@ -22,73 +23,56 @@ html, body {
   /* border: 3px solid saddlebrown */
 }
 
+#image-background {
+background: url(bannerphoto1.jpg) no-repeat center center fixed; 
+height: 1000px;
+background-position:50% 50%;  /* Sets reference point to scale from */
+background-size:cover;        
 
-#dark-background {
-  /* border: 2px solid green; */
-  background: url(banner3.jpg) no-repeat center center fixed; 
-  height: 1000px;
 }
 
 h1 {
     font-weight: bold;
 }
 
-.rounded-circle {
+/* .rounded-circle {
     width: 110px;
     height: 110px;
-}
+} */
 
-#home-font {
+#nav-font {
   color: #505e6c;
-
 }
 
 .navbar-brand {
   position: relative;
-  width: 70px;
+  width: 60px;
   left: 15px;
-  color: #0D0E0F;
-
 }
-
-
 
 .lato-font {
   font-family: 'Lato', sans-serif;
 }
 
-.register-photo {
-    padding: 80px 0;
-}
-
-.register-photo .image-holder {
+/* .register-photo .image-holder {
     display: table-cell;
     width: auto;
-    background: url("dronelogin.jpg");
     background-size: cover;
-}
-
-/* .register-photo .form-container {
-    display: table;
-    max-width: 900px;
-    height: 90px;
-    width: 90%;
-    margin: 0 auto;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 } */
+
 
 .register-photo form {
     display: table-cell;
     width: 400px;
     background-color: #ffffff;
-    /* padding: 40px 60px; */
-    color: #505e6c;
-    
+    color: #505e6c;  
 }
 
 .col-md-4 {
     padding-top: 45px;
+    width: 400px;
 }
+
 
 .card-img-top {
     display: block;
@@ -107,17 +91,17 @@ h1 {
 
 }
 
-.carousel-caption h1 {
+/* .carousel-caption h1 {
     margin: 0;
     color: white;
-}
+} */
 
 .view {
     max-width: 100%; 
 }
 
 .banner-image {
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .btn  {
@@ -125,14 +109,15 @@ h1 {
  width: 200px;
  color: #FFFFFF;
  font-size: 12px;
- /* background: linear-gradient(137.63deg, #26272B 9.53%, #34393F 95.92%);
- box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E; */
 
 }
 
 .dark-button {
   background: linear-gradient(136.85deg, #1F2328 0%, #1A1C1F 100%);
+  border: 1px solid black;
   border-radius: 8px;
+  background: linear-gradient(165.39deg, #26272B 12.58%, #34393F 93.18%);
+ box-shadow: inset 3px 3px 10px #0D0E0F, inset -3px -3px 10px #40464E;
 }
 
 .nowrap {
@@ -217,6 +202,13 @@ h1 {
   width: 400px;
 }
 
+.center-container {
+
+height: 100%;
+align-content: center;
+
+}
+
 
 .gothic-font {
   font-family: 'Pathway Gothic One', sans-serif;
@@ -247,3 +239,81 @@ h1 {
 .nanum-font {
 font-family: 'Nanum Gothic', sans-serif;
 }
+
+.avatar {
+  margin: 5px;
+}
+.msg-container {
+/* Message */
+max-width: 400px;
+background: linear-gradient(147.42deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(128deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
+background-blend-mode: soft-light, normal;
+box-shadow: 10px 10px 40px #BDC1D1, -10px -10px 42px #FAFCFC, inset 1px 1px 9px #E6E7EB;
+border-radius: 40px;
+
+
+}
+
+
+
+
+
+.neuro-container {
+  background: linear-gradient(129.9deg, rgb(38,39,43, 0.1) 12.58%, #34393F 93.19%);
+  background-color: transparent;
+  color: white;
+  min-height: 500px;
+  min-width: 400px;
+}
+
+
+.success {
+  color: #3DC763;
+  font-size: 20px;
+}
+
+.error {
+  color: #ED3D3D;
+}
+
+.divider {
+  padding-top: 5px;
+}
+
+
+
+
+.nav>li>a:hover, .nav>li>a:focus, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  background:#fff;
+}
+
+.dropdown-menu>li>a {
+  color:#428bca;
+}
+.dropdown ul.dropdown-menu {
+  border-radius:4px;
+  box-shadow:none;
+  margin-top:20px;
+  width:300px;
+}
+.dropdown ul.dropdown-menu:before {
+  content: "";
+  border-bottom: 10px solid #fff;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+  content: "";
+  border-bottom: 12px solid #ccc;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  z-index: 9;}
+
+

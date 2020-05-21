@@ -14,14 +14,15 @@
 <br>
     <% end %>
        <% if user_signed_in? %>
-      <%= link_to "Check inbox",  conversations_path %>
       <br>
     <%= link_to "Edit Profile Information", edit_user_registration_path %>
     <br>
     </div>
     <div class="col-sm-6 p-2 flex-column ">
+      <%= link_to "Check inbox",  conversations_path %>
         <h4>Your current listings</h4>
         <% current_user.listings.each do |l|%>
+        
         <%=  "title #{l.title}"   %>
         <br>
         category <%= l.category_id %>
@@ -29,6 +30,8 @@
         <%= link_to "Edit Listing", edit_listing_path(l) %>
         <%= link_to "Delete", l, method: :delete, data: { confirm: "Delete #{l.title} listing?"}%>
         <br>
+             
+
         <% end %>
         <% end %>
   

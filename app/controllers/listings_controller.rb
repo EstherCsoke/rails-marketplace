@@ -1,19 +1,17 @@
 class ListingsController < ApplicationController
-	before_action :authenticate_user!, only: [:create, :edit, :new]
+	before_action :authenticate_user!, only: [:create, :edit, :new, :conversations]
 	before_action :set_categories, only: [:new,:create, :edit]
-	
 
   def index
     @listings = params[:category_id]
-    @listings = Listing.all.sort_by(&:created_at).reverse
+    sort_listings_by_new
     @listings = Listing.where(in_stock: true)
-    # @listings = Listing.paginate(page: params[:page], per_page: 5)
+    @listings = Listing.paginate(page: params[:page], per_page: 6)
   end 
   
   def home
-    @listings = Listing.all.sort_by(&:created_at).reverse
+    sort_listings_by_new
     @listings = Listing.where(in_stock: true)
-    # @listings = Listing.paginate(page: params[:page], per_page: 5)
   end 
 	
 	def destroy
@@ -30,74 +28,78 @@ class ListingsController < ApplicationController
     generate_stripe_session
   end 
 
-
   def create
 		@listing = current_user.listings.create(listing_params)
-		@listing.category_id = params[:category_id]
+		# @listing.category_id = params[:category_id]
     if @listing.save
-      flash[:notice] = "Listing was created successfully"
-      redirect_to root_path  
+      flash[:success] = "Your Listing was Created"
+      redirect_to @listing
     else 
-      render 'new'
-      # flash[:notice] = "Opps! The listing was not created!"
+      # render 'new'
+      flash[:alert] = "Opps! Something Went Wrong! The listing was not created!"
     end
   end
-  
 
   def edit
-		@categories = Category.all.map { |c| [c.kind, c.id]  }
-		@listing = current_user.listings.find_by_id(params[:id])
-    render("edit")
+		# @categories = Category.all.map { |c| [c.kind, c.id]  }
+		find_user_listing
+    # render("edit")
 	end 
   
   def update
-    @listing = current_user.listings.find_by_id(params[:id])
-    if @listing
-      @listing.update(listing_params)
-      if @listing.errors.any?
-        render "edit"
+    find_user_listing
+    if @listing.update(listing_params)
+      flash[:success] = "This Listing was Edited"
+      redirect_to listing_path
     else
-      redirect_back(fallback_location: root_path) 
-      end
-      else
-      redirect_back(fallback_location: root_path) 
-      end
+      render 'edit'
+      flash[:error] = "Todo was NOT saved"
+    end
   end
 
-  end 
+end
+
 
 private
 def listing_params
   params.require(:listing).permit(:title, :description,:price, :picture, :category_id, :in_stock)
 end 
 
+def find_user_listing
+  @listing = current_user.listings.find_by_id(params[:id])
+
+end
+
 def set_categories
 	@categories = Category.all
 end
+
+def sort_listings_by_new
+  @listings = Listing.all.sort_by(&:created_at).reverse
+end 
 
 def generate_stripe_session
   session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
       line_items: [{
-          name: "Coder Academy",
+          name: current_user.id,
           currency: 'aud',
           quantity: 1,
           amount: @listing.price
+       
       }],
       payment_intent_data: {
           metadata: {
-              user_id: current_user.id, listing_id: @listing.id, in_stock: @listing.in_stock 
+              user_id: current_user.id, listing_id: @listing.id, in_stock: @listing.in_stock
           }
       },
-    
-    
+  
       success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
-      cancel_url: "#{root_url}"
+      cancel_url: "#{root_url}listings"
   )
 
-  # @listing.in_stock = false
-  # @listing.save
+ 
   @session_id = session.id
   
 end

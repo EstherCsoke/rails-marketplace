@@ -8,8 +8,10 @@ class PaymentsController < ApplicationController
   end
 
   def success
+#     if self.invoice_id
+#       return true
+# @listing = listing_id.
   end 
-  
   
  
 

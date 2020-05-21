@@ -1,31 +1,31 @@
-<div class="register-photo">
-    <div class="form-container">
-     <div class="image-holder">
+<div id="image-background">
+<div class="container h-100  ">
+  <div class="row align-items-center h-100">
+    <div class="neuro-container text-center">
+  
+      <h1 class=""> Log in</h1>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+      <% end %>
+      <div class="form-group"><button class="btn btn-primary" type="submit">Login</button>
+        <% end %>
+        <br>
+        <%= render "devise/shared/links" %>
+      </div>
+ 
+  </div>
 </div>
-        <form method="post">
-            <h2 class="text-center"><strong>Login</strong></h2>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-group">
-                <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
-            </div>
-            <div class="form-group">
-                <%= f.password_field :password, class:"form-control", placeholder:"Password",autocomplete: "current-password" %>
-            </div>
-            <div class="form-group">
-                <% if devise_mapping.rememberable? %>
-                <div class="field">
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                </div>
-                <%end%>
-            </div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Login</button></div><a class="already" href="#"></a>
-            <div class="text-center">
-            <%= render "devise/shared/links" %>
-            </div>
-            <% end %>
-   
-        </form>
-    </div>
 </div>
 </div>

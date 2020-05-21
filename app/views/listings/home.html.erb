@@ -35,11 +35,12 @@
    <div class="carousel-caption">
       <div class="d-flex h-100 align-items-center justify-content-center">
          <hgroup>
-            <h1 class="h3-responsive"> DRONE</h1>
-              <h4 class="h3-responsive letter-spacing nanum-font "> BUY AND SELL A DRONE</h4>
+            <h1 class="h3-responsive"> DRONE<small>tech</small></h1>
+              <h4 class="letter-spacing nanum-font "> BUY AND SELL A DRONE</h4>
             <br>
-            <button type="button" class="btn btn-outline custom-btn nowrap lato-font">SIGN UP</button>
-               <button type="button" class="btn btn-outline custom-btn nowrap lato-font">REGISTER</button>
+             <%= link_to "LOG IN" , new_user_session_path, class: "btn btn-outline custom-btn nowrap lato-font dark-button"%>
+             <%= link_to "SIGN UP" , new_user_registration_path, class: "btn btn-outline custom-btn nowrap lato-font dark-button"%>
+
            
          </hgroup>
          <%= image_tag("dronepng2.png", alt:"drone controller", class:"d-block w-50" )%>  
@@ -51,8 +52,6 @@
 <br>
 <div class="text-center display-1 gothic-font letter-spacing">
    <h1>LATEST LISTINGS </h1>
- 
-
 </div>
 <div class="container">
    <div class="row">
@@ -66,7 +65,7 @@
                <h5 class="card-title"><br><%= listing.title %></h5>
                <p class="card-text">$<%= listing.price %></p>
                <div class="text-center">
-               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg"%>
+               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-primary btn-lg dark-button"%>
 </div>
                </div>
             </div>

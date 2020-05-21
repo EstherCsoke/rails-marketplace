@@ -33,7 +33,7 @@
                <h5 class="card-title"><br><%= listing.title %></h5>
                <p class="card-text">$<%= listing.price %></p>
                <div class="text-center">
-               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg"%>
+               <%= link_to "VIEW" , listing_path(listing.id), class: "btn btn-outline-light btn-lg dark-button"%>
 </div>
                </div>
             </div>
@@ -42,6 +42,14 @@
       <% end %>
    </div>
 </div>
+
+
+<div class="text-center">
+   
+    <%= will_paginate @listings, :container => false %>
+     </div>
+
+
 
 
 

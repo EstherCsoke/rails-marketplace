@@ -19,9 +19,13 @@
    <body>
 
       <%= render 'layouts/navigation' %>
+                   <% flash.each do |type, msg| %>
+  <%= content_tag :span, msg, class: "#{type}", id: "puffly" %>
+<% end %>
       <div class = background-container>
-    
+
          <%= yield %>
+
          </div>
        
    </body>

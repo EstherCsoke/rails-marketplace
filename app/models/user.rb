@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          has_many :listings, dependent: :destroy
          has_one_attached :avatar
+         has_many :conversations, dependent: :destroy
+
 end

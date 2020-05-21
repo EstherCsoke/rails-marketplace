@@ -21,17 +21,32 @@
         <%= link_to "BUY", listings_path, class: "nav-link" %>
       </li>
     </ul>
-    <span class="navbar-text ">
-      <% if user_signed_in? %>
-      <ul class="navbar-nav mr-auto">
-      <li class="nav-item"> <%= link_to "ACCOUNT", profile_path, class: "nav-link" %>
 
-      <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "nav-link"%></li>
-     
-      </ul>
-      <% else %>
-      <%= link_to "LOGIN", new_user_session_path, class: "nav-link"%>
+    <span class="navbar-text ">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle nav-item text-center" data-toggle="dropdown">ACCOUNT<span class="glyphicon glyphicon-user pull-right"></span></a>
+          <ul class="dropdown-menu">
+          <% if user_signed_in? %>
+            <li class="nav-item item-center" id="nav-font" > <%= link_to "ACCOUNT", profile_path, id:"nav-font", class: "glyphicon glyphicon-cog pull-right" %></li>
+            <li class="divider"></li>
+            <%= link_to "EDIT USER", edit_user_registration_path, class: "glyphicon glyphicon-stats pull-right"%></li>
+            <li class="divider"></li>
+            <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-stats pull-right"%></li>
+            <li class="divider"></li>
+            <% else %>
+              <li class="nav-item"> <%= link_to "LOGIN",new_user_session_path, class: "nav-link" %></li>
       <% end %>
-    </span>
-  </div>
-</nav>
+          </ul>
+        </li>
+        </ul>
+
+        
+
+
+
+ </nav>
+   
+
+    
+  

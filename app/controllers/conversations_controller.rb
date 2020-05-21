@@ -2,8 +2,9 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
     @users = User.where.not(id: current_user.id)
+    @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
+    
   end
 
 
@@ -13,7 +14,6 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
-
     redirect_to conversation_messages_path(@conversation)
   end
 
