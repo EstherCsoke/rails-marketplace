@@ -56,7 +56,7 @@ class ListingsController < ApplicationController
       flash[:error] = "Todo was NOT saved"
     end
   end
-  
+
 
 end
 

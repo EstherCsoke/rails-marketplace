@@ -222,7 +222,6 @@ h1 {
 .center-container {
 height: 100%;
 align-content: center;
-
 }
 
 .gothic-font {
@@ -259,13 +258,11 @@ font-family: 'Nanum Gothic', sans-serif;
 
 .msg-container {
 /* Message */
-max-width: 400px;
+max-width: 200px;
 background: linear-gradient(147.42deg, rgba(64, 72, 93, 0.4) 6.32%, rgba(96, 106, 130, 0.4) 92.25%), linear-gradient(128deg, #E6E7ED -79.65%, #F7F8FA 151.25%);
 background-blend-mode: soft-light, normal;
 box-shadow: 10px 10px 40px #BDC1D1, -10px -10px 42px #FAFCFC, inset 1px 1px 9px #E6E7EB;
 border-radius: 40px;
-
-
 }
 
 .neuro-container {
@@ -299,8 +296,6 @@ border-radius: 16px;
   align-items:center;
 
 }
-
-
 
 
 .nav>li>a:hover, .nav>li>a:focus, .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {

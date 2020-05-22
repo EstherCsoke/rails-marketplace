@@ -22,10 +22,12 @@
         <% if current_user.id != @listing.user_id %>
         <%= link_to "Message Seller", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg dark-button" %>
         <br>
+        <br>
         <button class="btn btn-primary btn-lg " data-stripe="quickbuy">Quick Buy</button>
         <% else %>
-        <%= puts "Hey this is your listing!" %>
+        <%=  "Hey this is your listing!" %>
         <%end%>
+      <br>
       <br>
          <%= link_to "Back" , listings_path, class: " "%>
     </div>

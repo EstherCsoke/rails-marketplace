@@ -17,16 +17,8 @@
     <div class="form-group">
       <input id="search" placeholder="Search" class="form-control">
     </div>
-    <%
-=begin%>
- <ul id="users" class="list-group">
-      <% @users.each do |user| %>
-        <li class="list-group-item" data-searchstring="<%= user.email%> <%= user.email %>">
-          <%= link_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %>
-        </li>
-      <% end %> 
-<%
-=end%>
+     <%= link_to "Back To Profile", :back %>
+
     </ul>
   </div>
 </div>
@@ -38,41 +30,3 @@
 
 
 
-<%
-=begin%>
- <h1>Inbox</h1>
-
-
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li>
-      <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
-      <% if !conversation.unread_message_count(current_user).zero? %>
-        (<%= conversation.unread_message_count(current_user) %>)
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-
-
-
-<ul>
-  <% @conversations.each do |conversation| %>
-    <% recipient = conversation.sender_id == current_user.id ? conversation.receiver : conversation.sender %>
-    <li><%= link_to recipient.id, conversation_messages_path(conversation) %></li>
-  <% end %>
-</ul> 
-<%
-=end%>
-
-
-<%
-=begin%>
- <h2>Users</h2>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
-  <% end %>
-</ul> 
-<%
-=end%>

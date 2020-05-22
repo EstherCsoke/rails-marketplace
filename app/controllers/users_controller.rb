@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
     end 
 
+
     def posts
+        
     end
 end 
