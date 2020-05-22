@@ -13,7 +13,6 @@
 
  */
 
-
 @import "bootstrap";
 @import "puffly";
  
@@ -24,10 +23,10 @@ html, body {
 }
 
 #image-background {
-background: url(bannerphoto1.jpg) center no-repeat; 
-height: 1000px;
-background-position:50% 50%;  /* Sets reference point to scale from */
-background-size:cover;        
+  background: url(bannerphoto1.jpg) center no-repeat; 
+  height: 1000px;
+  background-position:50% 50%;  /* Sets reference point to scale from */
+  background-size:cover;        
 }
 
 .success-background {
@@ -38,10 +37,8 @@ background-size:cover;
   border: 2px solid green;
 }
 
-
-
 h1 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
  .rounded-circle {
@@ -100,11 +97,6 @@ h1 {
 
 }
 
-/* .carousel-caption h1 {
-    margin: 0;
-    color: white;
-} */
-
 .view {
     max-width: 100%; 
 }
@@ -118,7 +110,6 @@ h1 {
  width: 200px;
  color: #FFFFFF;
  font-size: 12px;
-
 }
 
 .dark-button {
@@ -228,16 +219,11 @@ h1 {
   text-align:center;
 }
 
-
-
-
 .center-container {
-
 height: 100%;
 align-content: center;
 
 }
-
 
 .gothic-font {
   font-family: 'Pathway Gothic One', sans-serif;
@@ -253,7 +239,6 @@ align-content: center;
 
 }
 
-
 .letter-spacing {
   padding-top: 5px;
   letter-spacing: 0.125em;
@@ -264,7 +249,6 @@ align-content: center;
 
 }
 
-
 .nanum-font {
 font-family: 'Nanum Gothic', sans-serif;
 }
@@ -272,6 +256,7 @@ font-family: 'Nanum Gothic', sans-serif;
 .avatar {
   margin: 5px;
 }
+
 .msg-container {
 /* Message */
 max-width: 400px;
@@ -283,13 +268,16 @@ border-radius: 40px;
 
 }
 
-
 .neuro-container {
-  background: linear-gradient(129.9deg, rgb(39,43, 0.1) 12.58%, #34393F 93.19%);
-  background-color: transparent;
+  // background: linear-gradient(129.9deg, rgb(39,43, 0.1) 12.58%, #34393F 93.19%);
   color: white;
   min-height: 500px;
   min-width: 400px;
+
+background: linear-gradient(149.92deg, #26272B 6.67%, #34393F 97.78%);
+box-shadow: 1px 1px 5px #0D0E0F, -3px -3px 9px #353B42, inset 1px 1px 9px #2D2E35;
+border-radius: 16px;
+
 }
 
 .success {
@@ -307,8 +295,9 @@ border-radius: 40px;
 
 .align-center {
   display:flex;
+  flex-direction: column;
   align-items:center;
-  min-height:100vh;
+
 }
 
 

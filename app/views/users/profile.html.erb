@@ -1,31 +1,20 @@
-    <div id="image-background">
+<div id="image-background">
     <% if user_signed_in? %>
-    <div class="text-center">
- <h1 class="text-center letter-spacing nanum-font divider">Profile Page
-   <small><br><%= link_to "Check inbox",  conversations_path, class:"letter-spacing" %></small> </h1>
-   <br>
-     <br>
+        <div class="text-center">
+            <h1 class="text-center letter-spacing nanum-font divider">Profile Page
+                <small><br><%= link_to "Check inbox",  conversations_path, class:"letter-spacing" %></small> 
+                </h1>
+            <br>
+            <br>
+            <%= link_to "Link To Your Current Listings", post_path%>
+            <br>
+            <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail" %>
+            <% else %>
+            <%= image_tag("profile/defaultimage.png", alt: "drone controller", class: "rounded-circle ") %>
+            <br> <%= link_to "Edit Profile Information", edit_user_registration_path%>
 
-         <%= link_to "Link To Your Current Listings", post_path%>
-
-    <br>
-    <% if current_user.avatar.attached? %>
-
-        <%= image_tag current_user.avatar, class: "rounded-circle img-thumbnail" %>
-        <% else %>
-        <%= image_tag("profile/defaultimage.png", alt: "drone controller", class: "rounded-circle ") %>
-<br>       <%= link_to "Edit Profile Information", edit_user_registration_path%>
-
-    <% end %>
-   
-   
-
-    
-        <% end %>
-</div>
-</div>
-
-
-
-
-
+            <% end %>
+            <% end %>
+        </div>
+    </div>

@@ -14,7 +14,6 @@
   <%= f.file_field :avatar %> 
   </div>
 
-
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -42,8 +41,6 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
-
 
   <div class="actions">
     <%= f.submit "Update" %>
