@@ -1,37 +1,37 @@
 <div class="container divider">
-  <div class="row align-items-center">
-    <div class="col-sm-7 ">
-      <h1><%= @listing.title%></h1>
-      <div class="open-sans">
-        <%= @listing.category.kind %> 
-        <br>
-        Posted:
-        <%= @listing.created_at.strftime("%Y-%m-%d") %>
-      </div>
-      <% if @listing.picture.attached? %>
-      <%= image_tag @listing.picture, class:"img-fluid max-with: 500px" %>
-        <% else %>
-          <%= image_tag("dronepng.png", alt:"drone", class: "img-fluid max-with: 500px" )%>
-      <%end%>
+    <div class="row align-items-center">
+        <div class="col-sm-7 ">
+            <h1><%= @listing.title%></h1>
+            <div class="open-sans">
+                <%= @listing.category.kind %>
+                <br>
+                Posted:
+                <%= @listing.created_at.strftime("%Y-%m-%d") %>
+            </div>
+            <% if @listing.picture.attached? %>
+            <%= image_tag @listing.picture, class:"img-fluid max-with: 500px" %>
+            <% else %>
+            <%= image_tag("dronepng.png", alt:"drone", class: "img-fluid max-with: 500px" )%>
+            <%end%>
+        </div>
+        <div class="col-sm-5 p-2 flex-column margin-top text-center">
+            <h4>Price $<%= @listing.price%></h4>
+            <br>
+            <p><%= @listing.description%></p>
+            <p><%= @listing.user_id%></p>
+            <% if current_user.id != @listing.user_id %>
+            <%= link_to "Message Seller", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg dark-button" %>
+            <br>
+            <br>
+            <button class="btn btn-primary btn-lg " data-stripe="quickbuy">Quick Buy</button>
+            <% else %>
+            <%=  "Hey this is your listing!" %>
+            <%end%>
+            <br>
+            <br>
+            <%= link_to "Back" , listings_path, class: " "%>
+        </div>
     </div>
-    <div class="col-sm-5 p-2 flex-column margin-top text-center">
-      <h4>Price $<%= @listing.price%></h4>
-      <br>
-      <p><%= @listing.description%></p>
-      <p><%= @listing.user_id%></p>
-        <% if current_user.id != @listing.user_id %>
-        <%= link_to "Message Seller", conversations_path(sender_id: current_user.id, receiver_id: @listing.user_id), method: :post, class: "btn btn-outline-light btn-lg dark-button" %>
-        <br>
-        <br>
-        <button class="btn btn-primary btn-lg " data-stripe="quickbuy">Quick Buy</button>
-        <% else %>
-        <%=  "Hey this is your listing!" %>
-        <%end%>
-      <br>
-      <br>
-         <%= link_to "Back" , listings_path, class: " "%>
-    </div>
-  </div>
 </div>
 
 
@@ -42,20 +42,15 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  document
-    .querySelector("[data-stripe='quickbuy']")
-    .addEventListener("click", () => {
-      const stripe = Stripe(
-        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
-      );
+    document
+        .querySelector("[data-stripe='quickbuy']")
+        .addEventListener("click", () => {
+            const stripe = Stripe(
+                "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+            );
 
-      stripe.redirectToCheckout({
-        sessionId: "<%= @session_id %>"
-      });
-    });
+            stripe.redirectToCheckout({
+                sessionId: "<%= @session_id %>"
+            });
+        });
 </script>
-
-
-
-
-

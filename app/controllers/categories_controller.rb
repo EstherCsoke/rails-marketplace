@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "Todo was created successfully"
+      flash[:notice] = "Category was created successfully"
       render "new"
     else 
       render 'new'
@@ -23,9 +23,7 @@ class CategoriesController < ApplicationController
   end 
 end 
 
-def show
 
-end 
 
 
   private

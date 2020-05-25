@@ -4,8 +4,6 @@
 ---
 Deployed Link:
 
-https://gentle-basin-79145.herokuapp.com/
-
 
 Github: 
 

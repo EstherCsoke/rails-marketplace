@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :edit, :new, :conversations, :show]
 	before_action :set_categories, only: [:new,:create, :edit]
 
+  #shows the categories
   def index
     @listings = params[:category_id]
     sort_listings_by_new
@@ -9,25 +10,30 @@ class ListingsController < ApplicationController
     @listings = Listing.paginate(page: params[:page], per_page: 6)
   end 
   
+
   def home
     sort_listings_by_new
     @listings = Listing.where(in_stock: true)
   end 
-	
+  
+  #deletes listings
 	def destroy
     Listing.find(params[:id]).destroy
     redirect_to root_path
 	end
   
+  #initaies creartion of listings
 	def new 
 		@listing = Listing.new
 	end 
 
+  #shows listings and geenrates stripe session
   def show
     @listing = Listing.find(params[:id]) 
     generate_stripe_session
   end 
 
+  #creates the listing
   def create
 		@listing = current_user.listings.create(listing_params)
 		# @listing.category_id = params[:category_id]
@@ -40,12 +46,14 @@ class ListingsController < ApplicationController
     end
   end
 
+  # edits the listing
   def edit
 		# @categories = Category.all.map { |c| [c.kind, c.id]  }
 		find_user_listing
     # render("edit")
 	end 
   
+  #updates listing
   def update
     find_user_listing
     if @listing.update(listing_params)
@@ -60,17 +68,17 @@ class ListingsController < ApplicationController
 
 end
 
-
+#calls parameter
 private
 def listing_params
   params.require(:listing).permit(:title, :description,:price, :picture, :category_id, :in_stock)
 end 
-
+#finds listing per id
 def find_user_listing
   @listing = current_user.listings.find_by_id(params[:id])
 
 end
-
+#sets categories
 def set_categories
 	@categories = Category.all
 end
@@ -79,10 +87,11 @@ def sort_listings_by_new
   @listings = Listing.all.sort_by(&:created_at)
 end 
 
+#succuess message
 def success_message
   flash[:success] = "Successful!"
 end 
-
+#shows stripe
 def generate_stripe_session
   session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],

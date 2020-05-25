@@ -1,36 +1,25 @@
 <div class="text-center ">
-<div id="messages">
-  <% @conversation.messages.each do |message| %>
-    <% if message.body %>
-      <div class="media">
-    
-
-     
-        <div class="media-body align-center ">
-          <h5 class="media-heading"><%= message.user.email %> <small class="text-muted"><%= message.created_at %></small></h5>
-          <p><%= message.body %></p>
-      
-      </div>
-         </div>
+    <div id="messages">
+        <% @conversation.messages.each do |message| %>
+        <% if message.body %>
+        <div class="media">
+            <div class="media-body align-center ">
+                <h5 class="media-heading"><%= message.user.email %> <small class="text-muted"><%= message.created_at %></small></h5>
+                <p><%= message.body %></p>
+            </div>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
+    <%= form_for [@conversation, @message] do |f| %>
+    <div class="form-group  h-100 align-center ">
+        <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5 %>
+    </div>
+    <%= f.submit "Send", class: "btn btn-primary pull-right" >
     <% end %>
-  <% end %>
+    <br>
+    <%= link_to "To Inbox" , conversations_path, class: "btn btn-primary btn-lg dark-button"%>
+    <br>
+    <br>
+    <%= link_to "Back", :back %>
 </div>
-<%= form_for [@conversation, @message] do |f| %>
-  <div class="form-group  h-100 align-center ">
-    <%= f.text_area :body, autofocus: true, placeholder: "Your message", class: "form-control", rows: 5 %>
-  </div>
-
-  <%= f.submit "Send", class: "btn btn-primary pull-right" %>
-              
-
-<% end %>
-<br>
-   <%= link_to "To Inbox" , conversations_path, class: "btn btn-primary btn-lg dark-button"%>
-   <br>
-   <br>
-   <%= link_to "Back", :back %>
- </div>
-
-
-
- 

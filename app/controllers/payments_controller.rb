@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
   def pay
 
   end
-
+#shows succws message
   def success
   end 
   
